@@ -1,5 +1,7 @@
 <?php
   include('php/001_simple_arrays.php');
+  include('php/002_multy_arrays.php');
+  include('php/003_data_in_arrays.php');
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +26,10 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Массивы</h1>
+
+      <h2>Массив</h2>
+
       <span>массив целых чисел: $arrInt = [1, 4, 45];</span>
       <pre><?php var_dump($numbers);?></pre>
 
@@ -65,6 +71,48 @@
         ];
       </span>
       <pre><?php var_dump($days);?></pre>
+
+      <h2>Многомерный массив</h2>
+
+      <span>массив матрица: $matrix = [
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
+        ];
+      </span>
+      <pre><?php var_dump($matrix);?></pre>
+
+      <span>Вывод центральный элемент (на строке 2 в столбце 2) $matrix: var_dump($matrix[1][1]);</span>
+      <pre><?php var_dump($matrix[1][1]);?></pre>
+
+      <span>Вывод последний элемент в первой строке из этой матрицы $matrix: var_dump($matrix[0][2]);</span>
+      <pre><?php var_dump($matrix[0][2]);?></pre>
+
+      <span>Вывод сумму элементов из этой матрицы, расположенных ниже и левее диагонали 1 5 9 $matrix: var_dump($matrix[1][0] + $matrix[2][0] + $matrix[2][1]);</span>
+      <pre><?php var_dump($matrix[1][0] + $matrix[2][0] + $matrix[2][1]);?></pre>
+
+      <span>массив пользователи: $users = [
+          ['name' => 'Никита', 'age' => 29, 'profession' => 'плотник'],
+          ['name' => 'Вася', 'age' => 13, 'profession' => 'футболист'],
+          ['name' => 'Николай Николаевич', 'age' => 77, 'profession' => 'профессиональный игрок в DotA']
+        ];
+      </span>
+      <pre><?php var_dump($users);?></pre>
+
+      <span>Добовление нового элемента из массива $users: $users[] = ['name' => 'Виталий', 'age' => 30, 'profession' => 'программист'];</span>
+      <?php $users[] = ['name' => 'Виталий', 'age' => 30, 'profession' => 'программист'];?>
+      <pre><?php var_dump($users);?></pre>
+
+      <span>
+        Загадочный пользователь: $mysteriousUser = [
+          'name' => $users[2]['name'],
+          'age' => $users[0]['age'],
+          'profession' => $users[1]['profession']
+        ];
+      </span>
+      <pre><?php var_dump($mysteriousUser);?></pre>
+
+      <h2>Массивы с данными</h2>
     </div>
   </body>
 </html>
