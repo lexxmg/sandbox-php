@@ -113,6 +113,12 @@
       <pre><?php var_dump($mysteriousUser);?></pre>
 
       <h2>Массивы с данными</h2>
+
+      <span>Животные:</span>
+      <pre><?php var_dump($animals);?></pre>
+
+      <span>Строения:</span>
+      <pre><?php var_dump($buildings);?></pre>
     </div>
   </body>
 </html>
