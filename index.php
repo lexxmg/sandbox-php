@@ -133,7 +133,7 @@
       <pre><? var_dump($farm['animals'][$animal]['description']); ?></pre>
 
       <span>Название помещения, в котором живет мышь:</span>
-      <pre><? var_dump($farm['animals']['mouse']['house']['name']); ?></pre>
+      <pre><? var_dump($farm['buildings'][$farm['animals']['mouse']['house']]['name']); ?></pre>
     </div>
   </body>
 </html>

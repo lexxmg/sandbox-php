@@ -105,33 +105,33 @@ $buildings = [
 // хрюшка тоже живет в стойле
 
 $animals = [
-  'mouse' => [
-    'description' => 'это животное грызун',
-    'legsCount' => '4',
-    'tail' => [
-      'type' => 'лысый',
-      'length' => 10
+    'mouse' => [
+        'description' => 'это животное грызун',
+        'legsCount' => 4,
+        'tail' => [
+            'type' => 'лысый',
+            'length' => 10
+        ],
+        'house' => 'house',
     ],
-    'house' => $buildings['house']
-  ],
-  'horse' => [
-    'description' => 'скачет по полям',
-    'legsCount' => '4',
-    'tail' => [
-      'type' => 'пушистый',
-      'length' => 40
+    'horse' => [
+        'description' => 'скачет по полям',
+        'legsCount' => 4,
+        'tail' => [
+            'type' => 'пушистый',
+            'length' => 50
+        ],
+        'house' => 'stalls',
     ],
-    'house' => $buildings['stalls']
-  ],
-  'pig' => [
-    'description' => 'кушает желуди',
-    'legsCount' => '4',
-    'tail' => [
-      'type' => 'крючком',
-      'length' => 4
+    'pig' => [
+        'description' => 'кушает желуди',
+        'legsCount' => 4,
+        'tail' => [
+            'type' => 'крючком',
+            'length' => 4
+        ],
+        'house' => 'stalls',
     ],
-    'house' => $buildings['stalls']
-  ]
 ];
 
 // 6. Теперь нам нужно поделиться информацией о всей ферме с кем-то, но на почте нам сказали, что мы можем отправить только одну переменную
