@@ -119,6 +119,21 @@
 
       <span>Строения:</span>
       <pre><?php var_dump($buildings);?></pre>
+
+      <span>Колличество лап у хрюши:</span>
+      <pre><? var_dump($farm['animals']['pig']['legsCount']); ?></pre>
+
+      <span>Цвет будки:</span>
+      <pre><? var_dump($farm['buildings']['dogHouse']['color']); ?></pre>
+
+      <span>Длинна хвоста у коня:</span>
+      <pre><? var_dump($farm['animals']['horse']['tail']['length']); ?></pre>
+
+      <span>Описание животного из переменной $animal:</span>
+      <pre><? var_dump($farm['animals'][$animal]['description']); ?></pre>
+
+      <span>Название помещения, в котором живет мышь:</span>
+      <pre><? var_dump($farm['animals']['mouse']['house']['name']); ?></pre>
     </div>
   </body>
 </html>
