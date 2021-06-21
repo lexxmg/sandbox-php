@@ -1,5 +1,5 @@
 <?php
-  include('php/');
+  include('php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
