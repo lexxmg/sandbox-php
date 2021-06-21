@@ -24,9 +24,27 @@
 
   <body>
     <div class="fixed-container">
-      <pre><? echo $value; ?></pre>
+      <pre>
+        <?php
+          if ($value > 5)
+          {
+            echo "'Полученное число больше 5' $value";
+          } else {
+            echo $value;
+          }
+        ?>
+      </pre>
 
-      <pre><? echo $timeToLearn ?></pre>
+      <pre>
+        <?php
+          if ($timeToLearn)
+          {
+            echo "Я как раз сейчас и учусь";
+          } else {
+            echo "Что? Нет, для учебы всегда есть время";
+          }
+        ?>
+      </pre>
     </div>
   </body>
 </html>
