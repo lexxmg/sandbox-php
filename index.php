@@ -1,3 +1,7 @@
+<?php
+  include('php/sandbox.php');
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -20,7 +24,9 @@
 
   <body>
     <div class="fixed-container">
+      <pre><? echo $value; ?></pre>
 
+      <pre><? echo $timeToLearn ?></pre>
     </div>
   </body>
 </html>
