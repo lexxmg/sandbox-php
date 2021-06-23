@@ -24,7 +24,48 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Switch</h1>
 
+      <span>1)</span>
+      <pre>
+        <?
+          switch ($errCode) {
+            case 1:
+              echo "1 - Что-то пошло не так $errCode";
+              break;
+            case 2:
+              echo "2 - Что-то пошло так как надо, но мы этого не ждали $errCode";
+              break;
+            case 3:
+              echo "Я в домике $errCode";
+              break;
+          }
+        ?>
+      </pre>
+
+      <span>2)</span>
+      <pre>
+        <?
+          switch ($myNumber) {
+            case 2:
+            case 4:
+            case 6:
+            case 8:
+            case 10:
+              echo "Четный. Ты не с нами! $myNumber";
+              break;
+            default:
+              echo "Добро пожаловать! $myNumber";
+          }
+        ?>
+      </pre>
+
+      <span>3)</span>
+      <pre>
+        <?
+          echo "Выбранный продукт $foods[$foodItem] - это $type";
+        ?>
+      </pre>
     </div>
   </body>
 </html>
