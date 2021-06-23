@@ -24,7 +24,42 @@
 
   <body>
     <div class="fixed-container">
+      <h1>cycles_and_arrays</h1>
 
+      <span>1)</span>
+      <pre>
+        <?
+          var_dump($boringToys);
+        ?>
+      </pre>
+
+      <span>2)</span>
+      <pre>
+        <?
+          var_dump($cars);
+        ?>
+      </pre>
+
+      <span>3)</span>
+      <pre>
+        <?
+          echo "$sum";
+        ?>
+      </pre>
+
+      <span>4)</span>
+      <pre>
+        <?
+          var_dump($cars);
+        ?>
+      </pre>
+
+      <span>5)</span>
+      <pre>
+        <?
+
+        ?>
+      </pre>
     </div>
   </body>
 </html>
