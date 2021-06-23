@@ -24,6 +24,7 @@
 
   <body>
     <div class="fixed-container">
+      <span>1)</span>
       <pre>
         <?php
           if ($value > 5)
@@ -35,6 +36,7 @@
         ?>
       </pre>
 
+      <span>2)</span>
       <pre>
         <?php
           if ($timeToLearn)
@@ -42,6 +44,46 @@
             echo "Я как раз сейчас и учусь";
           } else {
             echo "Что? Нет, для учебы всегда есть время";
+          }
+        ?>
+      </pre>
+
+      <span>3)</span>
+      <pre>
+        <?
+          if ($hour < 8)
+          {
+            echo "В это время нужно спать $hour";
+          } elseif ($hour < 21) {
+            echo "В это время занимайтесь полезными делами, или поспите после обеда $hour";
+          } else {
+            echo "Самое время готовиться ко сну $hour";
+          }
+        ?>
+      </pre>
+
+      <span>5)</span>
+      <pre>
+        <?
+          $a = rand(1, 5);
+          $b = rand(1, 5);
+          $c = rand(1, 5);
+
+          if ($a + $b > $c && $a + $c > $b && $c + $b > $a) {
+            echo "Треугольник со сторонами $a $b $c существует";
+          } else {
+            echo "Невозможно создать треугольник со сторонами $a $b $c";
+          }
+        ?>
+      </pre>
+
+      <span>6)</span>
+      <pre>
+        <?
+          if ($dayNumber === 1 || $dayNumber === 7) {
+            echo "Выходной $dayNumber $dayArrName[$dayNumber]";
+          } else {
+            echo "Будни $dayNumber $dayArrName[$dayNumber]";
           }
         ?>
       </pre>
