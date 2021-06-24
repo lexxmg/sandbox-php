@@ -55,11 +55,16 @@
       </pre>
 
       <span>5)</span>
-      <pre>
+      <p>
         <?
-
+          foreach ($cars as $key => $value) {
+            foreach ($value['colors'] as $colors) {
+              printf( 'Автомобиль %s цвета %s всего за: %s руб <br>',
+              $cars[$key]['name'], $colors['name'], ($colors['extra'] + $cars[$key]['price']) );
+            }
+          }
         ?>
-      </pre>
+      </p>
     </div>
   </body>
 </html>

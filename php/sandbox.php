@@ -54,10 +54,24 @@ $colors = ['Красный', 'Синий', 'Черный', 'Белый', 'Мед
 //$cars[1] = 'color'[$colors[3]];
 
 foreach ($cars as $key => $value) {
-  $cars[$key]['colors'][] = $colors[3];
-
+  for ($i = 0; $i < 3; $i++) {
+    $cars[$key]['colors'][] = [
+      'name' =>  $colors[rand(0, count($colors) - 1)],
+      'extra' => rand(0, 100)
+    ];
+  }
 }
 
 
 // 5. Каталог автомобилей.
 // А теперь выведите весь каталог автомобилей в виде: "Автомобиль {} цвета {} всего за: {} руб", вместо {} поставьте соответственно: название автомобиля, цвет, стоимость в этом цвете
+/*
+foreach ($cars as $key => $value) {
+  foreach ($value['colors'] as $j => $colors) {
+    echo 'Автомобиль ' . $cars[$key]['name'] .
+      ' цвета ' . $cars[$key]['colors'][$j]['name'] .
+      ' всего за: ' . ($cars[$key]['colors'][$j]['extra'] + $cars[$key]['price']) . ' руб';
+    echo '<br>';
+  }
+}
+*/
