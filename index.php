@@ -24,7 +24,16 @@
 
   <body>
     <div class="fixed-container">
+      <h1>full_house</h1>
 
+      <span>1)</span>
+      <p>
+        <?
+          printf('Заказов %s на сумму: %s. Из них профукано %s заказов на сумму: %s',
+            count($orders), $profit, $lossOrdersInWeekends, $lossInWeekends
+          );
+        ?>
+      </p>
     </div>
   </body>
 </html>
