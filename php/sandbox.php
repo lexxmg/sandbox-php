@@ -47,6 +47,42 @@ $couriersCount = 3;
 // Только учтите, что мы все еще не можем ничего доставлять в выходные
 $minCouriers = 0;
 
+$ordersByDay = [];
+
+foreach ($orders as $key => $value) {
+  $ordersByDay[$value['day']][] = $value['price'];
+}
+
+/*
+$arr = [];
+
+$arr[0] = 'j';
+
+$arr[1][] = 'a';
+$arr[1][] = 'b';
+
+$arr[2][] = 'b';
+
+var_dump($arr);
+
+var_dump($ordersByDay[20]);
+
+foreach ($ordersByDay as $key => $day) {
+  foreach ($day as  $value) {
+    echo "$key - $value <br>";
+  }
+}
+*/
+
+foreach ($ordersByDay as $key => $value) {
+  if ( $key['day'] === 18 || $key['day'] === 19 ) continue;
+
+  if ( count($value) > $minCouriers ) {
+    $minCouriers = count($value);
+  }
+}
+
+//echo "Для того, чтобы доставить все заказы, минимальное количество курьеров: $minCouriers";
 
 
 // 3. Отчет для начальства
@@ -55,7 +91,15 @@ $minCouriers = 0;
 // Выведите нам для начальства и строку: "Заказов профукано из-за недостатка курьеров: {}"
 $lossOrdersBecauseFewCouriers = 0;
 
+foreach ($ordersByDay as $key => $value) {
+  if ( $key['day'] === 18 || $key['day'] === 19 ) continue;
 
+  if ( count($value) > $couriersCount ) {
+    $lossOrdersBecauseFewCouriers += count($value) - $couriersCount;
+  }
+}
+
+//echo "Заказов профукано из-за недостатка курьеров: $lossOrdersBecauseFewCouriers";
 
 // 4. Спасаемся как можем
 // Делать нечего, а еще начальство сказало: "если все заказы доставить не можем в какой-то день, то везите самые дорогие"
