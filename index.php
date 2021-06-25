@@ -48,6 +48,30 @@
           echo "Заказов профукано из-за недостатка курьеров: $lossOrdersBecauseFewCouriers";
         ?>
       </p>
+
+      <span>4)</span>
+      <p>
+        <?
+          echo "Заказов профукано из-за недостатка курьеров $lossOrdersBecauseFewCouriers на сумму: $lossBecauseFewCouriers";
+        ?>
+      </p>
+
+      <span>5)</span>
+      <p>
+        <?
+          printf('Заказов %s на сумму: %s. Из них профукано в выходные %s заказов на сумму: %s. А также профукано из-за недостатка курьеров %s на сумму: %s',
+            count($orders), $profit, $lossOrdersInWeekends, $lossInWeekends, $lossOrdersBecauseFewCouriers, $lossBecauseFewCouriers
+          );
+        ?>
+      </p>
+
+      <p>
+        <?
+          printf('Итого заказов доставлено %s из %s, денег заработано %s из %s',
+            $resultCount, count($orders), $resultProfit, $profit
+          );
+        ?>
+      </p>
     </div>
   </body>
 </html>

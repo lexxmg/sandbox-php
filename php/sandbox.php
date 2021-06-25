@@ -108,9 +108,23 @@ foreach ($ordersByDay as $key => $value) {
 $lossBecauseFewCouriers = 0;
 // Выведите нам для начальства и строку: "Заказов профукано из-за недостатка курьеров {} на сумму: {}"
 
+foreach ($ordersByDay as $key => $value) {
+  if ( $key['day'] === 18 || $key['day'] === 19 ) continue;
 
+  rsort($value);
+  for ($i = $couriersCount; $i < count($value); $i++) {
+    $lossBecauseFewCouriers += $value[$i];
+  }
+}
 
 // 5. Итоговый отчет
 // Меня, конечно, уволят, но вы, выведите пожалуйста итоговый отчет:
 // "Заказов {} на сумму: {}. Из них профукано в выходные {} заказов на сумму: {}. А также профукано из-за недостатка курьеров {} на сумму: {}"
 // "Итого заказов доставлено {} из {}, денег заработано {} из {}"
+
+$resultCount = count($orders) - $lossOrdersBecauseFewCouriers - $lossOrdersInWeekends;
+$resultProfit = $profit - $lossBecauseFewCouriers - $lossInWeekends;
+
+// echo printf('Заказов %s на сумму: %s. Из них профукано в выходные %s заказов на сумму: %s. А также профукано из-за недостатка курьеров %s на сумму: %s',
+//   count($orders), $profit, $lossOrdersInWeekends, $lossInWeekends, $lossOrdersBecauseFewCouriers, $lossBecauseFewCouriers
+// );
