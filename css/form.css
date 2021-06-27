@@ -1,0 +1,48 @@
+.title {
+  margin: 10px 0 0 0;
+
+  text-align: center;
+}
+
+.form {
+  width: 200px;
+
+  margin: 20px auto 0;
+}
+
+.form__input {
+  width: 20px;
+}
+
+.form__text {
+
+}
+
+.form__inner {
+
+}
+
+.form-inner {
+
+}
+
+.form-inner__text {
+
+}
+
+.form-inner__text--success {
+  color: green;
+}
+
+.form-inner__text--err {
+  color: red;
+}
+
+.form__btn {
+  display: block;
+
+  margin: 20px 0 0 0;
+
+  width: 70px;
+  height: 30px;
+}
