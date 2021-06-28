@@ -45,6 +45,14 @@
           <? if ( isset($error) ): ?>
             <span class="form-inner__text form-inner__text--err"><?= "$op1 + $op2 = $sum  $error" ?></span>
           <? endif ?>
+
+          <? if(isset($invalid)): ?>
+            <span class="form-inner__text form-inner__text--err"><?=$invalid?></span>
+
+            <script type="text/javascript">
+              document.forms.myForm.op2.style.borderColor = 'red';
+            </script>
+          <? endif ?>
         </div>
 
         <input class="form__btn" type="submit" value="Готово!" name="btn">

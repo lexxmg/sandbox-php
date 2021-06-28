@@ -5,16 +5,20 @@ if ( isset($_POST['btn']) ) {
   $op2 = $_POST['op2'];
   $sum = $_POST['sum'];
 
-  if ($op1 + $op2 == $sum) {
-    $success = 'Решенеие верно!';
-
-    echo "$op1 + $op2 = $sum";
+  if ( is_numeric($op2) ) {
+    if ($op1 + $op2 == $sum) {
+      $success = 'Решенеие верно!';
+    } else {
+      $error = 'Не верное решение!';
+    }
+  } elseif ( $op2 === '' ) {
+    $invalid = 'Поле не может быть пустым!';
   } else {
-    $error = 'Не верное решение!';
+    $invalid = 'Введены не верные даные';
   }
 }
 
-if ( !isset($error) ) {
+if ( !isset($error) && !isset($invalid) ) {
   $sourceOperator1 = rand(0, 10);
   $sourceOperator2 = '';
   $sourceSum = rand(0, 10);
