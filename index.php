@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>Подсчет различных букв в слове</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -24,7 +24,22 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Подсчет различных букв в слове</h1>
 
+      <pre>
+        <?
+          var_dump($strArr);
+          var_dump($countElement);
+        ?>
+      </pre>
+
+      <p>В строке <?=$line?>:</p>
+
+      <ul>
+        <? foreach ($countElement as $key => $item): ?>
+          <li><?='Колличество символов ' . $key . ' - ' . $item?></li>
+        <? endforeach ?>
+      </ul>
     </div>
   </body>
 </html>
