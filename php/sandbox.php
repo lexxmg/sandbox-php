@@ -31,3 +31,9 @@ for ($i=0; $i < count($strArr) ; $i++) {
   }
   $countElement[$strArr[$i]] = $count;
 }
+
+$result = [];
+
+foreach ($strArr as $value) {
+  $result[$value] = ($result[$value] ?? 0) + 1;
+}

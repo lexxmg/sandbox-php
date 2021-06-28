@@ -30,6 +30,7 @@
         <?
           var_dump($strArr);
           var_dump($countElement);
+          var_dump($result);
         ?>
       </pre>
 
@@ -37,6 +38,15 @@
 
       <ul>
         <? foreach ($countElement as $key => $item): ?>
+          <li><?='Колличество символов ' . $key . ' - ' . $item?></li>
+        <? endforeach ?>
+      </ul>
+
+      <hr>
+      <p>В строке <?=$line?> (второй вариант):</p>
+
+      <ul>
+        <? foreach ($result as $key => $item): ?>
           <li><?='Колличество символов ' . $key . ' - ' . $item?></li>
         <? endforeach ?>
       </ul>
