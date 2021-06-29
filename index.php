@@ -24,7 +24,17 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Поиск min элемента в массиве</h1>
 
+      <pre>
+        <?
+          var_dump($values);
+        ?>
+      </pre>
+
+      <p>
+        <?=$index . ' => ' . $min?>
+      </p>
     </div>
   </body>
 </html>
