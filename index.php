@@ -35,6 +35,16 @@
       <p>
         <?=$index . ' => ' . $min?>
       </p>
+
+      <span>Решение 2)</span>
+
+      <p>
+        <?=implode(', ', $values)?>
+      </p>
+
+      <p>
+        <?="Наименньшее число $values[$index2], под индексом $index2"?>
+      </p>
     </div>
   </body>
 </html>

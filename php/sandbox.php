@@ -23,3 +23,15 @@ foreach ($values as $key => $item) {
 }
 
 //echo $min;
+
+//Решение 2
+
+$index2 = 0;
+
+foreach ($values as $key => $item) {
+  if ($values[$index2] > $item) {
+    $index2 = $key;
+  }
+}
+
+echo $index2 . ' - ' .  $values[$index2];
