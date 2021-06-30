@@ -24,7 +24,25 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Поиск max в двумерном массиве</h1>
 
+      <pre>
+        <? var_dump($matrix); ?>
+      </pre>
+
+      <ul>
+        <? for ($i=0; $i < count($matrix); $i++): ?>
+          <li><?=implode(', ', $matrix[$i])?></li>
+        <? endfor ?>
+      </ul>
+
+      <p>
+        <?
+          printf('Максимальное значение: %s на строке: %s в столбце: %s',
+            $matrix[$row][$column], $row + 1, $column + 1
+          );
+        ?>
+      </p>
     </div>
   </body>
 </html>
