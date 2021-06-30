@@ -24,7 +24,9 @@
 
   <body>
     <div class="fixed-container">
+      <h1>Подсчет суммы элементов массива</h1>
 
+      
     </div>
   </body>
 </html>
