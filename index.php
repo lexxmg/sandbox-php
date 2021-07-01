@@ -25,6 +25,22 @@
   <body>
     <div class="fixed-container">
       <h1>Сортировка массивов</h1>
+
+      <p>Массив матрица:</p>
+
+      <ul>
+        <?php foreach ($matrix as $key => $value): ?>
+          <li><?=implode(', ', $value)?></li>
+        <?php endforeach; ?>
+      </ul>
+
+      <p>Отсортированный массив матрица:</p>
+
+      <ul>
+        <?php foreach ($sortMatrix as $key => $value): ?>
+          <li><?=implode(', ', $value)?></li>
+        <?php endforeach; ?>
+      </ul>
     </div>
   </body>
 </html>
