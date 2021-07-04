@@ -28,7 +28,7 @@
         <?php foreach ($cars as $key => $value): ?>
           <?php if (
                   $value['kilometer'] <= $city1 + $city1Radius && $value['kilometer'] >= $city1 - $city1Radius ||
-                  $value['kilometer'] <= $city2 + $city2Radius && $value['kilometer'] >= $city2 - $city2Radius 
+                  $value['kilometer'] <= $city2 + $city2Radius && $value['kilometer'] >= $city2 - $city2Radius
                 ): ?>
             <li>Машина <?=$value['car']?> едет по городу на <?=$value['kilometer']?> км со скоростью не более 70"</li>
           <?php else: ?>
@@ -36,6 +36,23 @@
           <?php endif; ?>
         <?php endforeach; ?>
       </ul>
+
+      <div class="highway">
+        <?php foreach ($cars as $key => $value): ?>
+          <div class="highway__item"
+            style=<?php
+            $nextCar = ( array_key_exists($key + 1, $cars) ) ? $key + 1 : $key;
+              printf('"left: %spx; top: %spx" ',
+                $cars[$key]['kilometer'],
+                ($cars[$key]['kilometer'] -  $cars[$nextCar]['kilometer'] <= 40 || $key % 2 == 0) ? 0 : 30);
+            ?>
+            ><?=$value['car']?>
+          </div>
+        <?php endforeach; ?>
+
+        <div class="highway__city1"></div>
+        <div class="highway__city2"></div>
+      </div>
     </div>
   </body>
 </html>

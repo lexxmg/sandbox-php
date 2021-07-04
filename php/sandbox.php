@@ -1,10 +1,10 @@
 
 <?php
 
-$city1 = 101;
-$city1Radius = 23;
-$city2 = 568;
-$city2Radius = 17;
+$city1 = 201;
+$city1Radius = 123;
+$city2 = 768;
+$city2Radius = 117;
 
 $cars = [];
 
