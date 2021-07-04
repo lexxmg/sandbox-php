@@ -1,30 +1,22 @@
 
 <?php
 
-$result1 = [
-  'author' => [
-    'fullName' => 'Достоевский Фёдор Михайлович',
-    'email' => 'Dostoevsky@fake.net'
-  ],
-  'book' => [
-    'name' => 'Преступление и наказание',
-    'email' => 'Dostoevsky@fake.net'
-  ]
-];
-
-$result2 = [
+$result3 = [
   'authors' => [
-    [
+    'Dostoevsky@fake.net' => [
       'fullName' => 'Достоевский Фёдор Михайлович',
-      'email' => 'Dostoevsky@fake.net'
+      'email' => 'Dostoevsky@fake.net',
+      'yearOfBirth' => '1821'
     ],
-    [
+    'Pushkin@fake.net' => [
       'fullName' => 'Пушкин Александр Сергеевич',
-      'email' => 'Pushkin@fake.net'
+      'email' => 'Pushkin@fake.net',
+      'yearOfBirth' => '1799'
     ],
-    [
+    'Sigmund@fake.net' => [
       'fullName' => 'Фрейд Зигмунд',
-      'email' => 'Sigmund@fake.net'
+      'email' => 'Sigmund@fake.net',
+      'yearOfBirth' => '1856'
     ]
   ],
   'books' => [
@@ -62,3 +54,7 @@ $result2 = [
     ]
   ]
 ];
+
+$copyResult3 = $result3;
+
+shuffle($copyResult3['books']);

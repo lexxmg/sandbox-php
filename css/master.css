@@ -77,3 +77,21 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+.text {
+  margin: 20px 0;
+
+  font-weight: 600;
+}
+
+.list {
+
+}
+
+.list__item {
+  margin: 0 0 5px 0;
+}
+
+.list__item:last-child {
+  margin: 0;
+}

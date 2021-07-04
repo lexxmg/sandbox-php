@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>task2</title>
+    <title>task3</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -24,7 +24,37 @@
 
   <body>
     <div class="fixed-container">
-      <pre><?php var_dump($result2)?></pre>
+      <p class="text">Книги:</p>
+
+      <ul class="list">
+        <?php foreach ($result3['books'] as $key => $value): ?>
+          <li class="list__item">
+            Книга <?=$value['name']?>, ее написал <?php
+              printf('%s %s %s',
+                $result3['authors'][$value['email']]['fullName'],
+                $result3['authors'][$value['email']]['yearOfBirth'],
+                $value['email']
+              );
+             ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+
+      <p class="text">Перемешанные книги:</p>
+
+      <ul class="list">
+        <?php foreach ($copyResult3['books'] as $key => $value): ?>
+          <li class="list__item">
+            Книга <?=$value['name']?>, ее написал <?php
+              printf('%s %s %s',
+                $copyResult3['authors'][$value['email']]['fullName'],
+                $copyResult3['authors'][$value['email']]['yearOfBirth'],
+                $value['email']
+              );
+             ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
     </div>
   </body>
 </html>
