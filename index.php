@@ -39,12 +39,17 @@
 
       <div class="highway">
         <?php foreach ($cars as $key => $value): ?>
+          <?php $currentCar = 1;?>
           <div class="highway__item"
             style=<?php
-            $nextCar = ( array_key_exists($key + 1, $cars) ) ? $key + 1 : $key;
+            //$nextCar = ( array_key_exists($key + 1, $cars) ) ? $key + 1 : $key;
+
+            if ($cars[$currentCar]['kilometer'] - $cars[$key]['kilometer'] <= 40) {
+              $currentCar = $key;
+            }
               printf('"left: %spx; top: %spx" ',
                 $cars[$key]['kilometer'],
-                ($cars[$key]['kilometer'] -  $cars[$nextCar]['kilometer'] <= 40 || $key % 2 == 0) ? 0 : 30);
+                ($cars[$currentCar]['kilometer'] - $cars[$key]['kilometer'] <= 40) ? 0 : 30);
             ?>
             ><?=$value['car']?>
           </div>
