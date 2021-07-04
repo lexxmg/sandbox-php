@@ -24,37 +24,22 @@
 
   <body>
     <div class="fixed-container">
-      <p class="text">Книги:</p>
+      <h1 class="title <?=!$red ?: 'title--red'?>"><?=$title?></h1>
 
-      <ul class="list">
-        <?php foreach ($result3['books'] as $key => $value): ?>
-          <li class="list__item">
-            Книга <?=$value['name']?>, ее написал <?php
-              printf('%s %s %s',
-                $result3['authors'][$value['email']]['fullName'],
-                $result3['authors'][$value['email']]['yearOfBirth'],
-                $value['email']
-              );
-             ?>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+      <div class="authors">Авторов на портале <?=count($result3['authors'])?></div>
 
-      <p class="text">Перемешанные книги:</p>
+      <?php foreach ($result3['books'] as $key => $value): ?>
+        <p class="text">
+          Книга <?=$value['name']?>, ее написал <?php
+            printf('%s %s %s',
+              $result3['authors'][$value['email']]['fullName'],
+              $result3['authors'][$value['email']]['yearOfBirth'],
+              $value['email']
+            );
+           ?>
+        </p>
+      <?php endforeach; ?>
 
-      <ul class="list">
-        <?php foreach ($copyResult3['books'] as $key => $value): ?>
-          <li class="list__item">
-            Книга <?=$value['name']?>, ее написал <?php
-              printf('%s %s %s',
-                $copyResult3['authors'][$value['email']]['fullName'],
-                $copyResult3['authors'][$value['email']]['yearOfBirth'],
-                $value['email']
-              );
-             ?>
-          </li>
-        <?php endforeach; ?>
-      </ul>
     </div>
   </body>
 </html>

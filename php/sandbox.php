@@ -1,6 +1,10 @@
 
 <?php
 
+$title = 'Список книг';
+
+$red = (bool) rand(0, 1);
+
 $result3 = [
   'authors' => [
     'Dostoevsky@fake.net' => [
@@ -54,7 +58,3 @@ $result3 = [
     ]
   ]
 ];
-
-$copyResult3 = $result3;
-
-shuffle($copyResult3['books']);

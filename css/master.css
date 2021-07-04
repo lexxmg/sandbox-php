@@ -78,20 +78,26 @@ h1, h2, h3, p, figure {
 
 /*============================================================*/
 
-.text {
-  margin: 20px 0;
+.title {
+  margin: 0 0 20px 0;
+
+  text-align: center;
+}
+
+.title--red {
+  color: red;
+}
+
+.authors {
+  margin: 0 0 10px 0;
 
   font-weight: 600;
 }
 
-.list {
-
-}
-
-.list__item {
+.text {
   margin: 0 0 5px 0;
 }
 
-.list__item:last-child {
+.text:last-child {
   margin: 0;
 }
