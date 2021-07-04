@@ -1,5 +1,5 @@
 <?php
-  include('php/sandbox.php');
+  require('php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>Машины</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -24,7 +24,18 @@
 
   <body>
     <div class="fixed-container">
-
+      <ul>
+        <?php foreach ($cars as $key => $value): ?>
+          <?php if (
+                  $value['kilometer'] <= $city1 + $city1Radius && $value['kilometer'] >= $city1 - $city1Radius ||
+                  $value['kilometer'] <= $city2 + $city2Radius && $value['kilometer'] >= $city2 - $city2Radius 
+                ): ?>
+            <li>Машина <?=$value['car']?> едет по городу на <?=$value['kilometer']?> км со скоростью не более 70"</li>
+          <?php else: ?>
+            <li>Машина <?=$value['car']?> едет за городом <?=$value['kilometer']?> км со скоростью не более 90"</li>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </ul>
     </div>
   </body>
 </html>
