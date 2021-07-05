@@ -24,6 +24,7 @@
 
   <body>
     <div class="fixed-container">
+      <!-- <pre><?php var_dump($cars);?></pre> -->
       <ul>
         <?php foreach ($cars as $key => $value): ?>
           <?php if (
@@ -38,18 +39,15 @@
       </ul>
 
       <div class="highway">
+        <?php $rev = true;?>
+        <?php ksort($cars);?>
         <?php foreach ($cars as $key => $value): ?>
-          <?php $currentCar = 1;?>
+          <?php $rev = !$rev;?>
           <div class="highway__item"
             style=<?php
-            //$nextCar = ( array_key_exists($key + 1, $cars) ) ? $key + 1 : $key;
-
-            if ($cars[$currentCar]['kilometer'] - $cars[$key]['kilometer'] <= 40) {
-              $currentCar = $key;
-            }
               printf('"left: %spx; top: %spx" ',
-                $cars[$key]['kilometer'],
-                ($cars[$currentCar]['kilometer'] - $cars[$key]['kilometer'] <= 40) ? 0 : 30);
+                $value['kilometer'] - 40,
+                ($rev) ? 0 : 30);
             ?>
             ><?=$value['car']?>
           </div>
@@ -57,6 +55,7 @@
 
         <div class="highway__city1"></div>
         <div class="highway__city2"></div>
+        <div class="highway__markup"></div>
       </div>
     </div>
   </body>

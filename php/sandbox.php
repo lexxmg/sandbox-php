@@ -10,7 +10,9 @@ $cars = [];
 
 for ($i = 0; $i < 10; $i++) {
   $carNumber = $i + 1;
-  $cars[] = ['car' => $carNumber, 'kilometer' => rand(0, 1000)];
+  $kilometer = rand(0, 1000);
+
+  $cars[$kilometer] = ['car' => $carNumber, 'kilometer' => $kilometer];
 }
 
 //var_dump($cars);

@@ -81,7 +81,9 @@ h1, h2, h3, p, figure {
 .highway {
   position: relative;
 
-  width: 1050px;
+  overflow: hidden;
+
+  width: 1000px;
   height: 50px;
 
   background-color: gray;
@@ -126,4 +128,16 @@ h1, h2, h3, p, figure {
   height: 50px;
 
   background: green;
+}
+
+.highway__markup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 120;
+
+  width: 100%;
+  height: calc(50% + 1px);
+
+  border-bottom: 2px dashed white;
 }
