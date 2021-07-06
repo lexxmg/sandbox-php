@@ -9,10 +9,10 @@ $city2Radius = 117;
 $cars = [];
 
 for ($i = 0; $i < 10; $i++) {
-  $carNumber = $i + 1;
-  $kilometer = rand(0, 1000);
+    $carNumber = $i + 1;
+    $kilometer = rand(0, 1000);
 
-  $cars[$kilometer] = ['car' => $carNumber, 'kilometer' => $kilometer];
+    $cars[$kilometer] = ['car' => $carNumber, 'kilometer' => $kilometer];
 }
 
 //var_dump($cars);
