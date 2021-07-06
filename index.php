@@ -30,14 +30,14 @@
         <?php foreach ($result3['books'] as $key => $value): ?>
           <li class="list__item">
             Книга <?=$value['name']?>, ее написал <?php
-              printf('%s %s %s',
-                $result3['authors'][$value['email']]['fullName'],
-                $result3['authors'][$value['email']]['yearOfBirth'],
-                $value['email']
-              );
+                printf('%s %s %s',
+                    $result3['authors'][$value['email']]['fullName'],
+                    $result3['authors'][$value['email']]['yearOfBirth'],
+                    $value['email']
+                );
              ?>
           </li>
-        <?php endforeach; ?>
+        <?php endforeach ?>
       </ul>
 
       <p class="text">Перемешанные книги:</p>
@@ -46,14 +46,14 @@
         <?php foreach ($copyResult3['books'] as $key => $value): ?>
           <li class="list__item">
             Книга <?=$value['name']?>, ее написал <?php
-              printf('%s %s %s',
-                $copyResult3['authors'][$value['email']]['fullName'],
-                $copyResult3['authors'][$value['email']]['yearOfBirth'],
-                $value['email']
-              );
+                printf('%s %s %s',
+                    $copyResult3['authors'][$value['email']]['fullName'],
+                    $copyResult3['authors'][$value['email']]['yearOfBirth'],
+                    $value['email']
+                );
              ?>
           </li>
-        <?php endforeach; ?>
+        <?php endforeach ?>
       </ul>
     </div>
   </body>
