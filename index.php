@@ -31,14 +31,14 @@
       <?php foreach ($result3['books'] as $key => $value): ?>
         <p class="text">
           Книга <?=$value['name']?>, ее написал <?php
-            printf('%s %s %s',
-              $result3['authors'][$value['email']]['fullName'],
-              $result3['authors'][$value['email']]['yearOfBirth'],
-              $value['email']
-            );
+                printf('%s %s %s',
+                    $result3['authors'][$value['email']]['fullName'],
+                    $result3['authors'][$value['email']]['yearOfBirth'],
+                    $value['email']
+                );
            ?>
         </p>
-      <?php endforeach; ?>
+      <?php endforeach ?>
 
     </div>
   </body>
