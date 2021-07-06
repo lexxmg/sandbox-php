@@ -28,10 +28,10 @@
 
       <p>
         <?php
-          printf('на учебе %s %s',
-            $studentsCount,
-            declOfNum($studentsCount, ['студент', 'студента', 'студентов'])
-          );
+            printf('на учебе %s %s',
+                $studentsCount,
+                declOfNum($studentsCount, ['студент', 'студента', 'студентов'])
+            );
         ?>
       </p>
     </div>
