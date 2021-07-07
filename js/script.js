@@ -1,5 +1,14 @@
 'use strict';
 
-const audio = new Audio('sounds/Sound_08184.mp3');
+const audio = document.createElement('audio');
 
-audio.preload = true;
+audio.setAttribute('src', 'sounds/Sound_08184.mp3');
+audio.setAttribute('controls', 'controls');
+audio.setAttribute('preload', 'auto');
+audio.setAttribute('autoplay', 'autoplay');
+
+document.body.prepend(audio);
+
+document.body.addEventListener('click', () => {
+  audio.play();
+});
