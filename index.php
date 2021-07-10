@@ -24,7 +24,7 @@
 
   <body>
     <div class="fixed-container">
-      <h1 class="title">POSR & GET</h1>
+      <h1 class="title">POST & GET</h1>
 
       <p class="par">Массив GET</p>
 
@@ -38,9 +38,9 @@
         <?php var_dump($_POST)?>
       </pre>
 
-      <p><?=$_SERVER['DOCUMENT_ROOT']?></p>
+      <p><?=$_SERVER['PHP_SELF']?></p>
 
-      <form action="$_SERVER('DOCUMENT_ROOT')" class="form" method="post" name="myForm">
+      <form action="<?=$_SERVER['PHP_SELF']?>" class="form" method="post" name="myForm">
         <div class="form__input-wrapper form-input-wrapper">
           <input class="form-input-wrapper__input" id="number1" type="text" name="number1">
           <label for="number1" class="form-input-wrapper__label">Введите число</label>
@@ -56,14 +56,22 @@
           <label for="number3" class="form-input-wrapper__label">Введите число</label>
         </div>
 
-        <select class="form__select" name="myFormSelect">
+        <select class="form__select" name="sort">
           <option selected value="">Не сортировать</option>
           <option value="desc">По убыванию</option>
           <option value="asc">По возрастанию</option>
         </select>
 
-        <button class="form__btn" name="myFormSubmit" value="send">Вычислить</button>
+        <button class="form__btn" name="send" value="success">Вычислить</button>
       </form>
+
+      <p class="par">Данные были отсортированы</p>
+
+      <div class="">
+          <?php foreach ($result as $key => $value): ?>
+              <span><?=$value?></span>
+          <?php endforeach; ?>
+      </div>
     </div>
   </body>
 </html>
