@@ -26,33 +26,18 @@
   <body>
     <div class="menu">
       <div class="container">
-          <ul>
-              <li><a href="index.php">Главная</a></li>
-              <li><a href="about.php">О нас</a></li>
-          </ul>
+        <ul>
+          <li><a href="index.php">Главная</a></li>
+          <li><a href="about.php">О нас</a></li>
+        </ul>
       </div>
     </div>
 
     <div class="container">
-      <h1>Каталог</h1>
+      <h1>О нас</h1>
 
-      <div class="items">
-        <figure>
-          <p><img src="img/glass.jpeg" alt="" /></p>
-          <figcaption>Стакан граненый</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
-        <figure>
-          <p><img src="img/hat.jpg" alt="" /></p>
-          <figcaption>Шапка ушанка</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
-        <figure>
-          <p><img src="img/pony.jpg" alt="" /></p>
-          <figcaption>Пони</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
-      </div>
+      <p>Мы Лучший Интернет-магазин в просторах интернет</p>
+      <p>Только у нас можно купить граненый стакан и пони сразу</p>
     </div>
   </body>
 </html>
