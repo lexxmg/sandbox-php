@@ -1,5 +1,5 @@
 <?php
-  reguire ('php/sandbox.php');
+  require ('php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>POST & GET</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -24,7 +24,19 @@
 
   <body>
     <div class="fixed-container">
+      <h1>POSR & GET</h1>
 
+      <p>Массив GET</p>
+
+      <pre>
+        <?php var_dump($_GET)?>
+      </pre>
+
+      <p>Массив POST</p>
+
+      <pre>
+        <?php var_dump($_POST)?>
+      </pre>
     </div>
   </body>
 </html>
