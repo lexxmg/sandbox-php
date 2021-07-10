@@ -42,17 +42,17 @@
 
       <form action="<?=$_SERVER['PHP_SELF']?>" class="form" method="post" name="myForm">
         <div class="form__input-wrapper form-input-wrapper">
-          <input class="form-input-wrapper__input" id="number1" type="text" name="number1">
+          <input class="form-input-wrapper__input" id="number1" type="text" name="number[]" value="<?=$number1?>">
           <label for="number1" class="form-input-wrapper__label">Введите число</label>
         </div>
 
         <div class="form__input-wrapper form-input-wrapper">
-          <input class="form-input-wrapper__input" id="number2" type="text" name="number2">
+          <input class="form-input-wrapper__input" id="number2" type="text" name="number[]" value="<?=$number2?>">
           <label for="number2" class="form-input-wrapper__label">Введите число</label>
         </div>
 
         <div class="form__input-wrapper form-input-wrapper">
-          <input class="form-input-wrapper__input" id="number3" type="text" name="number3">
+          <input class="form-input-wrapper__input" id="number3" type="text" name="number[]" value="<?=$number3?>">
           <label for="number3" class="form-input-wrapper__label">Введите число</label>
         </div>
 
@@ -65,11 +65,11 @@
         <button class="form__btn" name="send" value="success">Вычислить</button>
       </form>
 
-      <p class="par">Данные были отсортированы</p>
+      <p class="par">Данные <?=$sort?></p>
 
       <div class="">
           <?php foreach ($result as $key => $value): ?>
-              <span><?=$value?></span>
+              <span><?=$value?> </span>
           <?php endforeach; ?>
       </div>
     </div>
