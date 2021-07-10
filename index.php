@@ -1,5 +1,5 @@
 <?php
-  include('php/sandbox.php');
+  reguire ('php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
