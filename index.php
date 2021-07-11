@@ -40,6 +40,7 @@
         </p>
       <?php endforeach ?>
 
+      <button type="button" name="button">play</button>
     </div>
   </body>
 </html>
