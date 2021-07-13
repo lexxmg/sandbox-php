@@ -1,5 +1,6 @@
 <?php
   require ('php/sandbox.php');
+  require ($_SERVER['DOCUMENT_ROOT'] . '/php/products.php');
 ?>
 
 <!DOCTYPE html>
@@ -37,21 +38,15 @@
       <h1>Каталог</h1>
 
       <div class="items">
-        <figure>
-          <p><img src="img/glass.jpeg" alt="" /></p>
-          <figcaption>Стакан граненый</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
-        <figure>
-          <p><img src="img/hat.jpg" alt="" /></p>
-          <figcaption>Шапка ушанка</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
-        <figure>
-          <p><img src="img/pony.jpg" alt="" /></p>
-          <figcaption>Пони</figcaption>
-          <a href="form.php" class="btn">Купить</a>
-        </figure>
+
+        <?php foreach ($products as $key => $product): ?>
+            <figure>
+                <p><img src=<?=$product['img']?> alt=<?=$product['name']?> /></p>
+                <figcaption><?=$product['name']?></figcaption>
+                <a href="form.php?id=<?=$product['id']?>" class="btn">Купить</a>
+            </figure>
+        <?php endforeach; ?>
+
       </div>
     </div>
   </body>

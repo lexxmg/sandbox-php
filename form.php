@@ -1,5 +1,14 @@
 <?php
-  require ('php/sandbox.php');
+    require ('php/products.php');
+
+    $id = $_GET['id'] ?? 1;
+    //$product = [];
+
+    for ($i = 0; $i < count($products); $i++) {
+        if ($products[$i]['id'] == $id) {
+            $product = $products[$i];
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -46,12 +55,12 @@
 
       <div class="items">
         <figure>
-          <p><img src="img/glass.jpeg" alt="" /></p>
-          <figcaption>Стакан граненый</figcaption>
+          <p><img src=<?=$product['img']?> alt=<?=$product['name']?> /></p>
+          <figcaption><?=$product['name']?></figcaption>
         </figure>
       </div>
 
-      <form action="">
+      <form action="/form.php?id=2">
         <label>
           Ваше ФИО:
           <input type="text" placeholder="Введите ваше фио">
