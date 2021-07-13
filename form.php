@@ -51,11 +51,16 @@ require ($_SERVER['DOCUMENT_ROOT'] . '/template/header.php');
       </div>
 
       <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-        <input type="hidden" name="id" value="<?=$product['id']?>">
+        <input type="hidden" name="id" value="<?=htmlspecialchars($product['id'])?>">
 
         <label>
           Ваше ФИО*:
-          <input type="text" name="name" placeholder="Введите ваше фио">
+          <input
+            type="text"
+            name="name"
+            placeholder="Введите ваше фио"
+            value="<?=$_POST['name'] ?? ''?>"
+          >
         </label>
         <input type="submit" class="btn" value="Купить">
       </form>
