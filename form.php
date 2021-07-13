@@ -1,5 +1,5 @@
 <?php
-    require ('php/products.php');
+    require ($_SERVER['DOCUMENT_ROOT'] . '/php/products.php');
 
     $id = $_GET['id'] ?? 1;
     //$product = [];
@@ -60,7 +60,7 @@
         </figure>
       </div>
 
-      <form action="/form.php?id=2">
+      <form action="/form.php">
         <label>
           Ваше ФИО:
           <input type="text" placeholder="Введите ваше фио">
