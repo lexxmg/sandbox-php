@@ -30,10 +30,11 @@ $menu = [
     ],
 ];
 
-var_dump( array_column($menu, 'sort') );
-var_dump( array_multisort($menu, array_column($menu, 'sort'), SORT_ASC) );
+// var_dump( array_column($menu, 'sort') );
+// var_dump( array_multisort($menu, array_column($menu, 'sort'), SORT_ASC) );
 
 //var_dump( arraySort($menu, 'sort', SORT_ASC) );
+//var_dump( arraySort($menu, 'sort', SORT_DESC) );
 /**
  * Должен получиться следующий порядок:
  * - Главная страница

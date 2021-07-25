@@ -25,6 +25,10 @@
   <body>
     <div class="fixed-container">
         <h1 class="title">Сортировка массива</h1>
+
+        <pre>
+            <?php var_dump( arraySort($menu, 'sort', SORT_ASC) )?>
+        </pre>
     </div>
   </body>
 </html>
