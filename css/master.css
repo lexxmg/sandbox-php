@@ -77,3 +77,24 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+
+.tiile {
+  text-align: center;
+}
+
+.text {
+  padding: 10px 0;
+}
+
+.list {
+
+}
+
+.list__item {
+  margin: 0 0 2px 0;
+}
+
+.list__item:last-child {
+  margin: 0;
+}
