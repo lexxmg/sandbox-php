@@ -1,5 +1,5 @@
 <?php
-  require ('php/sandbox.php');
+  require ($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>Сортировка массива</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -24,7 +24,7 @@
 
   <body>
     <div class="fixed-container">
-
+        <h1 class="title">Сортировка массива</h1>
     </div>
   </body>
 </html>
