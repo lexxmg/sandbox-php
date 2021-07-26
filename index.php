@@ -29,6 +29,10 @@
         <pre>
             <?php var_dump( arraySort($menu, 'sort', SORT_ASC) )?>
         </pre>
+
+        <pre>
+            <?php var_dump( arraySort($menu, 'sort', SORT_DESC) )?>
+        </pre>
     </div>
   </body>
 </html>
