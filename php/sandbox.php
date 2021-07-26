@@ -30,8 +30,9 @@ $menu = [
     ],
 ];
 
-// var_dump( array_column($menu, 'sort') );
-// var_dump( array_multisort($menu, array_column($menu, 'sort'), SORT_ASC) );
+//var_dump( array_column($menu, 'sort') );
+//array_multisort(array_column($menu, 'sort'), SORT_ASC, $menu);
+//var_dump($menu);
 
 //var_dump( arraySort($menu, 'sort', SORT_ASC) );
 //var_dump( arraySort($menu, 'sort', SORT_DESC) );
