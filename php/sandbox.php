@@ -52,8 +52,8 @@ r-x(5) Чтение и выполнение
 
 $pathToFile = $_SERVER['DOCUMENT_ROOT'] . '/php/text.txt';
 
-var_dump( file_exists($pathToFile) ); //true если файл существует
-var_dump( is_writable($pathToFile) ); //true еслии существует и можно записать
+// var_dump( file_exists($pathToFile) ); //true если файл существует
+// var_dump( is_writable($pathToFile) ); //true еслии существует и можно записать
 
 if ( file_exists($pathToFile) ) {
     $fileR = fopen($pathToFile, 'r');

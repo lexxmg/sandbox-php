@@ -24,7 +24,13 @@
 
   <body>
     <div class="fixed-container">
+      <h1 class="title">Запись и чтение файла</h1>
 
+      <h2 class="subtitle">Проверка на существование файла</h2>
+      <span class="text"><?php var_dump( file_exists($pathToFile) )?></span>
+
+      <h2 class="subtitle">Проверка на существование файла и возможность записывать в него</h2>
+      <span class="text"><?php var_dump( is_writable($pathToFile) )?></span>
     </div>
   </body>
 </html>
