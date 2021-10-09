@@ -50,14 +50,15 @@ r-x(5) Чтение и выполнение
 --x(1) Только выполнение
 */
 
-$pathToFile = $_SERVER['DOCUMENT_ROOT'] . '/php/text.txt';
+$pathToFile = $_SERVER['DOCUMENT_ROOT'] . '/text-files/text.txt';
+$pathToFile_2 = $_SERVER['DOCUMENT_ROOT'] . '/text-files/text_2.txt';
 
 // var_dump( file_exists($pathToFile) ); //true если файл существует
 // var_dump( is_writable($pathToFile) ); //true еслии существует и можно записать
 
 if ( file_exists($pathToFile) ) {
     $fileR = fopen($pathToFile, 'r');
-    echo $fileR;
+    //echo $fileR;
 }
 fclose($fileR);
 
@@ -68,8 +69,29 @@ if ( is_writable($pathToFile) ) {
 
     foreach ($ingredients as $key => $value) {
         $success = fwrite($file, $value . PHP_EOL); // PHP_EOL - \r\n в Windows, \n Linux
-        echo $success;
+        var_dump($success);
     }
 
     fclose($file);
 }
+
+
+$ingredients_2 = ['Яблоко', 'Мука', 'Молоко', 'Яйца'];
+$reedFile = file_put_contents($pathToFile_2, $ingredients_2);
+
+$content = '';
+
+if ( file_exists($pathToFile_2) ) {
+    $file = fopen($pathToFile_2, 'r');
+    $content = fread($file, filesize($pathToFile_2) );
+    fclose($file);
+} else {
+    echo 'Файла не существует';
+}
+
+
+
+//$reedFile = file_put_contents($pathToFile_2, $ingredients_2);
+
+//echo file_get_contents($pathToFile_2);
+//var_dump($content);

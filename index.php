@@ -26,11 +26,29 @@
     <div class="fixed-container">
       <h1 class="title">Запись и чтение файла</h1>
 
+      <h2 class="subtitle">Дискриптор файла</h2>
+      <span class="text"><?=$fileR?></span>
+
       <h2 class="subtitle">Проверка на существование файла</h2>
-      <span class="text"><?php var_dump( file_exists($pathToFile) )?></span>
+      <span class="text"><?php var_dump( file_exists($pathToFile_2) )?></span>
 
       <h2 class="subtitle">Проверка на существование файла и возможность записывать в него</h2>
-      <span class="text"><?php var_dump( is_writable($pathToFile) )?></span>
+      <span class="text"><?php var_dump( is_writable($pathToFile_2) )?></span>
+
+      <h2 class="subtitle">Содержимое файла text_2.txt</h2>
+      <span class="text"><?=$content?></span>
+
+      <h2 class="subtitle">Путь к деректории где лежит скрипт</h2>
+      <span class="text"><?php var_dump( getcwd() )?></span>
+
+      <h2 class="subtitle">Список файлов в директории <?=__DIR__?></h2>
+      <span class="text"><?php var_dump( scandir(__DIR__) )?></span>
+
+      <ul class="list">
+          <?php foreach (scandir(__DIR__) as $key => $value): ?>
+              <li class="item"><?=$value?></li>
+          <?php endforeach; ?>
+      </ul>
     </div>
   </body>
 </html>
