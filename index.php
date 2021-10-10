@@ -32,7 +32,7 @@
 
       <form class="form" action="" method="POST" type="file" enctype="multipart/form-data">
         <div class="form__input-container form-input-container">
-          <input class="form-input-container__input" id="myFile" type="file" name="myFile">
+          <input class="form-input-container__input" id="myFile" type="file" name="myFile[]" multiple>
           <label for="myFile" class="form-input-container__label">Загрузить файл</label>
         </div>
 
