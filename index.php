@@ -24,7 +24,20 @@
 
   <body>
     <div class="fixed-container">
+      <pre>
+        <?php var_dump($_FILES) ?>
+      </pre>
 
+      <h1 class="title">Загрузка файлов</h1>
+
+      <form class="form" action="" method="POST" type="file" enctype="multipart/form-data">
+        <div class="form__input-container form-input-container">
+          <input class="form-input-container__input" id="myFile" type="file" name="myFile">
+          <label for="myFile" class="form-input-container__label">Загрузить файл</label>
+        </div>
+
+        <button class="form__btn" name="upload">Загрузить</button>
+      </form>
     </div>
   </body>
 </html>

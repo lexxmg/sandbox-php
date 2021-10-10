@@ -77,3 +77,36 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+
+.title {
+  margin: 0 0 20px 0;
+
+  text-align: center;
+}
+
+.form {
+
+}
+
+.form__input-container {
+
+}
+
+.form-input-container {
+  margin: 0 0 10px 0;
+}
+
+.form-input-container__input {
+
+}
+
+.form-input-container__label {
+  display: block;
+
+  margin: 5px 0 0 0;
+}
+
+.form__btn {
+
+}
