@@ -38,6 +38,13 @@
 
         <button class="form__btn" name="upload">Загрузить</button>
       </form>
+
+      <?php foreach ( preg_grep('/^([^.])/', scandir($_SERVER['DOCUMENT_ROOT'] . '/upload') ) as $key => $item): ?>
+          <?php if ( is_file($_SERVER['DOCUMENT_ROOT'] . '/upload/' . $item) ): ?>
+              <div><?=$item?></div>
+              <img src="<?='/upload/' . $item?>" alt="">
+          <?php endif; ?>
+      <?php endforeach; ?>
     </div>
   </body>
 </html>
