@@ -1,5 +1,6 @@
+
 <?php
-  require ('php/sandbox.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
 ?>
 
 <!DOCTYPE html>
