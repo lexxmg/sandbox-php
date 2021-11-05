@@ -26,6 +26,10 @@
   <body>
     <div class="fixed-container">
         <h1 class="tile">Session</h1>
+
+        <p class="subtitle">Колличество посещенией в сессии</p>
+
+        <span class="text"><?=$counter?></span>
     </div>
   </body>
 </html>
