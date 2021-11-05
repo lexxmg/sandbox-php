@@ -1,6 +1,7 @@
 
 <?php
   require($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
+  //require($_SERVER['DOCUMENT_ROOT'] . '/php/clean-session.php');
 ?>
 
 <!DOCTYPE html>
