@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>cookie</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -25,7 +25,15 @@
 
   <body>
     <div class="fixed-container">
+        <h1 style="text-align: center">Cookie</h1>
 
+        <p class="paragraph">Содержине cookie:</p>
+
+        <span class="text"><?=$cookie?></span>
+
+        <p class="paragraph">Колличество посещений страницы:</p>
+
+        <span class="text"><?=$count?></span>
     </div>
   </body>
 </html>
