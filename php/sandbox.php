@@ -4,6 +4,14 @@
 session_start();
 
 // var_dump( $_COOKIE );
+$name = '';
+
+if ( !isset($_COOKIE['PHPSESSID']) ) {
+    setcookie('PHPSESSID', 'lexx_2', time() + 3600);
+    $_SESSION['name'] = 'lexx';
+} else {
+    $name = 'Славься ' . $_SESSION['name'];
+}
 
 //phpinfo();
 $counter = 1;

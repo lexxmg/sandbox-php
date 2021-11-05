@@ -30,6 +30,10 @@
         <p class="subtitle">Колличество посещенией в сессии</p>
 
         <span class="text"><?=$counter?></span>
+
+        <p class="subtitle">Содержание session 'name'</p>
+
+        <span class="text"><?=$name?></span>
     </div>
   </body>
 </html>
