@@ -24,8 +24,20 @@
   </head>
 
   <body>
-    <div class="fixed-container">
+    <div class="top-bar">
+        <?php if ($success): ?>
+            <form class="top-bar__logout" method="post">
+                <button class="top-bar__btn btn" name="logout">Выход</button>
+            </form>
 
+            <span class="top-bar__user-name"><?=$authUser?></span>
+        <?php endif; ?>
+    </div>
+
+    <div class="fixed-container">
+        <?php if ($success): ?>
+            <h1 class="title">Дбро пожаловать <?=$authUser?></h1>
+        <?php endif; ?>
     </div>
   </body>
 </html>

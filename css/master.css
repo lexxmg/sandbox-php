@@ -77,3 +77,91 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  min-height: 50px;
+
+  padding: 5px 20px;
+
+  background-color: #000838;
+
+  color: white;
+}
+
+.top-bar__logout {
+  margin: 0;
+}
+
+.top-bar__btn {
+
+}
+
+.top-bar__user-name {
+  display: block;
+
+  margin: 0 0 0 30px;
+}
+
+.title {
+  margin: 50px 0 0 0;
+
+  text-align: center;
+}
+
+.form {
+  width: 200px;
+
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.form__label {
+  display: block;
+
+  margin: 0 0 20px 0;
+}
+
+.form__input {
+
+}
+
+.form__error {
+  color: red;
+}
+
+.form__submit {
+
+}
+
+.btn {
+  display: block;
+
+  width: 70px;
+  height: 30px;
+
+  padding: 0;
+
+  background: white;
+
+  border: 1px solid blue;
+  border-radius: 3px;
+
+  color: blue;
+
+  cursor: pointer;
+
+  transition: background .20s, color .20s
+}
+
+.btn:hover {
+  background: blue;
+
+  color: white;
+
+  transition: background .20s, color .20s;
+}
