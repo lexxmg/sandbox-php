@@ -7,7 +7,7 @@
 * // еквивалентно
 * $var = isset($value) ? $value : "Другое значение";
 */
-
+session_cache_expire(30);
 session_start();
 
 $arrName = ['user', 'user2', 'user3'];
@@ -66,7 +66,12 @@ if ( isset($_POST['logout']) ) {
     unset($_SESSION['name']);
 
     session_destroy();
-    session_unset();
+
+    foreach($_SESSION as $key => $item) {
+        unset($item);
+    }
+
+    //var_dump($_SESSION);
 
     header('Location: http://sandbox.my/auth');
     exit();
