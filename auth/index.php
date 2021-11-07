@@ -29,11 +29,11 @@
 
         <form class="form" method="post">
             <label class="form__label">Имя:
-                <input class="form__input" type="text" name="name">
+                <input class="form__input" type="text" name="name" value="<?=$name?>">
             </label>
 
             <label class="form__label">Пароль:
-                <input class="form__input" type="password" name="password">
+                <input class="form__input" type="password" name="password" value="<?=$password?>">
             </label>
 
             <?php if ( !empty($error) ): ?>
