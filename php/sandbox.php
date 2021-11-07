@@ -71,7 +71,13 @@ if ( isset($_POST['logout']) ) {
         unset($item);
     }
 
+    foreach ($_COOKIE as $key => $value) {
+        setcookie($key, '', 1);
+    }
+
+
     //var_dump($_SESSION);
+    //var_dump($_COOKIE);
 
     header('Location: http://sandbox.my/auth');
     exit();
