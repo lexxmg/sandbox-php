@@ -1,6 +1,6 @@
 
 <?php
-  require($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
+  require $_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>bd</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -25,7 +25,25 @@
 
   <body>
     <div class="fixed-container">
+        <h1 class="title">Запрос к базе данных</h1>
 
+        <table class="table">
+            <tr class="table__row">
+                <th class="table__title">id</th>
+                <th class="table__title">Товар</th>
+                <th class="table__title">Цена</th>
+                <th class="table__title">Описание</th>
+            </tr>
+
+            <?php foreach ($products as $key => $value): ?>
+                <tr class="table__row">
+                    <td class="table__column"><?=$value[0]?></th>
+                    <td class="table__column"><?=$value[1]?></th>
+                    <td class="table__column"><?=$value[2]?></th>
+                    <td class="table__column"><?=$value[3]?></th>
+                </tr>
+            <?php endforeach; ?>
+        </table>
     </div>
   </body>
 </html>

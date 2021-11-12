@@ -77,3 +77,33 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+
+.title {
+  text-align: center;
+}
+
+.table {
+  border-collapse: collapse;
+  border: 1px solid black;
+
+  background-color: #fff;
+}
+
+.table__row {
+
+}
+
+.table__title {
+  padding: 3px;
+
+  border: 1px solid #000;
+
+  background-color: #777;
+
+  color: #fff;
+}
+
+.table__column {
+  border: 1px solid black;
+}
