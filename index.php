@@ -41,9 +41,41 @@
                     <td class="table__column"><?=$value[1]?></th>
                     <td class="table__column"><?=$value[2]?></th>
                     <td class="table__column"><?=$value[3]?></th>
+                    <td class="table__column">
+                        <a href="?edit_id=<?=$value[0]?>">править</a>
+                    </td>
+                    <td class="table__column">
+                        <a href="?delete_id=<?=$value[0]?>">удaлить</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+
+        <?php if ( isset($_GET['edit_id']) ): ?>
+            <h2 class="subtitle">Редактировать</h2>
+        <?php else: ?>
+            <h2 class="subtitle">Добавить товар</h2>
+        <?php endif; ?>
+
+        <form class="form" method="post">
+            <label class="form__label">Название товара:
+                <input class="form__input" type="text" name="product" value="<?=$productId[0][1] ?? ''?>">
+            </label>
+
+            <label class="form__label">Стоимость:
+                <input class="form__input" type="number" name="price" value="<?=$productId[0][2] ?? ''?>">
+            </label>
+
+            <label class="form__label">Описание:
+                <textarea class="form__textarea" name="description"><?=$productId[0][3] ?? ''?></textarea>
+            </label>
+
+            <?php if ( isset($_GET['edit_id']) ): ?>
+                <button class="form__btn" name="edit">Изменить</button>
+            <?php else: ?>
+                <button class="form__btn" name="create">Создать</button>
+            <?php endif; ?>
+        </form>
     </div>
   </body>
 </html>

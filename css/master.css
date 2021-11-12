@@ -107,3 +107,36 @@ h1, h2, h3, p, figure {
 .table__column {
   border: 1px solid black;
 }
+
+.subtitle {
+  text-align: center;
+}
+
+.form {
+  width: 200px;
+}
+
+.form__label {
+  display: block;
+
+  margin: 0 0 10px 0;
+}
+
+.form__input {
+  width: 100%;
+
+  margin: 0 0 5px 0;
+}
+
+.form__textarea {
+  width: 100%;
+  height: 100px;
+
+  overflow-y: auto;
+
+  resize: none;
+}
+
+.form__btn {
+
+}
