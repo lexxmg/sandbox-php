@@ -54,3 +54,27 @@ if ( isset($_GET['delete_id']) ) {
     header('Location: /');
     exit();
 }
+
+if ( isset($_GET['show_id']) ) {
+    $id = $_GET['show_id'];
+
+    $productId = mysqli_query($connect, "SELECT * FROM `products` WHERE `id` = $id");
+    $productId = mysqli_fetch_all($productId);
+
+    $coments = mysqli_query($connect, "SELECT * FROM `moments` WHERE `product_id` = $id");
+    $coments = mysqli_fetch_all($coments);
+    //$coments = mysqli_fetch_assoc($coments);
+    //var_dump($coments);
+    //echo $productId[3];
+}
+
+if ( isset($_POST['coment']) ) {
+    $id = $_POST['id'];
+    $coment = $_POST['description'];
+
+    mysqli_query($connect, "INSERT INTO `moments` (`id`, `product_id`, `body`) VALUES (NULL, '$id', '$description')");
+
+
+    header("Location: product.php?show_id=$id");
+    exit();
+}

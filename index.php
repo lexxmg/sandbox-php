@@ -42,6 +42,9 @@
                     <td class="table__column"><?=$value[2]?></th>
                     <td class="table__column"><?=$value[3]?></th>
                     <td class="table__column">
+                        <a href="product.php?show_id=<?=$value[0]?>">показать</a>
+                    </td>
+                    <td class="table__column">
                         <a href="?edit_id=<?=$value[0]?>">править</a>
                     </td>
                     <td class="table__column">
