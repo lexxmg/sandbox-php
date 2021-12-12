@@ -1,7 +1,4 @@
-
-<?php
-  require($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
-?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php'?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>Добавление данных в БД</title>
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/master.css">
 
     <link rel="stylesheet" href="lib/slick/slick-theme.css">
     <link rel="stylesheet" href="lib/slick/slick.css">
@@ -25,7 +22,23 @@
 
   <body>
     <div class="fixed-container">
+        <h2>stock</h2>
 
+        <ul>
+            <?php foreach ($rowResult as $key => $value): ?>
+                <li><?php var_dump($value)?></li>
+            <?php endforeach; ?>
+
+            <pre><?php //var_dump($rowResult)?></pre>
+        </ul>
+
+        <h2>products</h2>
+
+        <ul>
+            <?php foreach ($resultProducts as $key => $value): ?>
+                <li><?php var_dump($value)?></li>
+            <?php endforeach; ?>
+        </ul>
     </div>
   </body>
 </html>
