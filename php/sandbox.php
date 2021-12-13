@@ -20,6 +20,7 @@ if (mysqli_connect_error()) {
     //     "INSERT INTO `stock` (`name`)
     //     VALUES ('большой склад')");
 
+    // добавить в базу
     if (false) {
         $result = mysqli_query(
             $connect,
@@ -28,6 +29,19 @@ if (mysqli_connect_error()) {
         );
     }
 
+    // добавить в базу несколько значений
+    if (false) {
+        $products = mysqli_query(
+            $connect,
+            "INSERT INTO `products` (`name`, `price`, `count`, `stock_id`)
+            VALUES
+            ('лампа', '1000', '13', '3'),
+            ('холодильник', '100000', '5', '3'),
+            ('ручка', '15', '150', '2')"
+        );
+    }
+
+    // добавить в базу, альтернативный синтаксис
     if (false) {
         $products = mysqli_query(
             $connect,
@@ -37,10 +51,32 @@ if (mysqli_connect_error()) {
         );
     }
 
-    $result = mysqli_query(
-        $connect,
-        "SELECT * FROM `stock`"
-    );
+    // изменить значение
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "UPDATE `products` SET `price` = `price` + '12' WHERE `products`.`id` = 2"
+        );
+    }
+
+    // изменить значение
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "UPDATE `products` SET `price` = '50450' WHERE `products`.`id` = 2"
+        );
+    }
+
+    // изменить значение по щесортированному столбцу price, первые 2 значения
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "UPDATE `products` SET `price` = `price` + 13 ORDER BY `price` asc limit 2"
+        );
+    }
+
+
+    $result = mysqli_query($connect, "SELECT * FROM `stock`");
 
     $products = mysqli_query($connect, "SELECT * FROM `products`");
 
