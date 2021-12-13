@@ -68,6 +68,7 @@ if (mysqli_connect_error()) {
     }
 
     // изменить значение по щесортированному столбцу price, первые 2 значения
+    // asc-сортировка по убыванию
     if (0) {
         $products = mysqli_query(
             $connect,
