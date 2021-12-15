@@ -95,8 +95,27 @@ if (mysqli_connect_error()) {
 
     $result = mysqli_query($connect, "SELECT * FROM `stock`");
 
-    $products = mysqli_query($connect, "SELECT * FROM `products`");
+    // Вывод всех стольбцов
+    //$products = mysqli_query($connect, "SELECT * FROM `products`");
+
+    // Вывод первыз 3 отсортированных по возрастанию
     //$products = mysqli_query($connect, "SELECT * FROM `products` ORDER BY `price` ASC LIMIT 3");
+
+    // Вывод одного столбца и переименование вывода
+    //$products = mysqli_query($connect, "SELECT `name` AS 'назание' FROM `products`");
+
+    // Вывод определенных столбцов и переиминование вывода
+    // $products = mysqli_query(
+    //     $connect,
+    //     "SELECT `name` AS 'назание', `price` AS 'цена' FROM `products`"
+    // );
+
+    // Исклюючить дубликаты названий в выводе ( DISTINCT )
+    $products = mysqli_query(
+        $connect,
+        "SELECT DISTINCT `name` FROM `products` ORDER BY `name` ASC"
+    );
+
 
     //var_export($result);
 
