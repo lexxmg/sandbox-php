@@ -35,9 +35,9 @@ if (mysqli_connect_error()) {
             $connect,
             "INSERT INTO `products` (`name`, `price`, `count`, `stock_id`)
             VALUES
-            ('лампа', '1000', '13', '3'),
+            ('лампа', '1000', '13', '1'),
             ('холодильник', '100000', '5', '3'),
-            ('ручка', '15', '150', '2')"
+            ('стул', '15', '70', '2')"
         );
     }
 
@@ -77,10 +77,26 @@ if (mysqli_connect_error()) {
         );
     }
 
+    // удаление
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "DELETE FROM `products` WHERE `id` = 3"
+        );
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "DELETE FROM `products` ORDER BY `price` asc LIMIT 3"
+        );
+    }
+
 
     $result = mysqli_query($connect, "SELECT * FROM `stock`");
 
     $products = mysqli_query($connect, "SELECT * FROM `products`");
+    //$products = mysqli_query($connect, "SELECT * FROM `products` ORDER BY `price` ASC LIMIT 3");
 
     //var_export($result);
 
