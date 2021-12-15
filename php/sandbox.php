@@ -68,11 +68,12 @@ if (mysqli_connect_error()) {
     }
 
     // изменить значение по щесортированному столбцу price, первые 2 значения
-    // asc-сортировка по убыванию
+    // asc-сортировка по возрастанию
+    // desc-сортировка по убыванию
     if (0) {
         $products = mysqli_query(
             $connect,
-            "UPDATE `products` SET `price` = `price` + 13 ORDER BY `price` asc limit 2"
+            "UPDATE `products` SET `price` = `price` + 14 ORDER BY `price` desc limit 2"
         );
     }
 
