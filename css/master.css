@@ -62,7 +62,7 @@ h1, h2, h3, p, figure {
 }
 
 .fixed-container {
-  max-width: 1300px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
@@ -77,3 +77,33 @@ h1, h2, h3, p, figure {
 }
 
 /*============================================================*/
+
+
+
+.title {
+  text-align: center;
+}
+
+.table {
+  margin: 20px 0 0 0;
+
+  /* border: 1px solid black; */
+
+  border-collapse: collapse;
+}
+
+.table__row {
+  border: 1px solid black;
+}
+
+.table__title {
+  padding: 5px;
+
+  border: 1px solid black;
+
+  background-color: gray;
+}
+
+.table__column {
+  border: 1px solid black;
+}

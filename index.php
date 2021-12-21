@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Добавление данных в БД</title>
+    <title>Калькулятор ранней пенсии</title>
 
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/master.css">
@@ -22,23 +22,38 @@
 
   <body>
     <div class="fixed-container">
-        <h2>stock</h2>
+        <h1 class="title">Калькулятор ранней пенсии</h1>
 
-        <ul>
-            <?php foreach ($rowResult as $key => $value): ?>
-                <li><?php var_dump($value)?></li>
+        <table class="table">
+            <tr class="table__row">
+                <th class="table__title">Доход</th>
+                <th class="table__title">Нужно откладывать</th>
+                <th class="table__title">Нужно откладывать %</th>
+                <th class="table__title">Сколько осталось лет</th>
+            </tr>
+
+            <tr class="table__row">
+                <td class="table__column">60</td>
+                <td class="table__column">20</td>
+                <td class="table__column">10</td>
+                <td class="table__column">40</td>
+            </tr>
+        </table>
+
+        <table class="table">
+            <tr class="table__row">
+                <th class="table__title">Нужно откладывать %</th>
+                <th class="table__title">Сколько осталось лет</th>
+
+            </tr>
+
+            <?php foreach ($result as $key => $value): ?>
+                <tr class="table__row">
+                    <td class="table__column"><?=$value['saving_rate']?></td>
+                    <td class="table__column"><?=$value['working_years']?></td>
+                </tr>
             <?php endforeach; ?>
-
-            <pre><?php //var_dump($rowResult)?></pre>
-        </ul>
-
-        <h2>products</h2>
-
-        <ul>
-            <?php foreach ($resultProducts as $key => $value): ?>
-                <li><?php var_dump($value)?></li>
-            <?php endforeach; ?>
-        </ul>
+        </table>
     </div>
   </body>
 </html>
