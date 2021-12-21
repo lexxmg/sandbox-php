@@ -24,31 +24,26 @@
     <div class="fixed-container">
         <h1 class="title">Калькулятор ранней пенсии</h1>
 
+        <form class="form" method="post">
+            <label class="form__label">Доход:
+                <input class="form__input" type="number" name="income" value="<?=$income?>">
+            </label>
+
+            <button class="form__btn" name="submit">Посчитать</button>
+        </form>
+
         <table class="table">
             <tr class="table__row">
-                <th class="table__title">Доход</th>
                 <th class="table__title">Нужно откладывать</th>
+                <th class="table__title">Остаётся на жизнь</th>
                 <th class="table__title">Нужно откладывать %</th>
                 <th class="table__title">Сколько осталось лет</th>
-            </tr>
-
-            <tr class="table__row">
-                <td class="table__column">60</td>
-                <td class="table__column">20</td>
-                <td class="table__column">10</td>
-                <td class="table__column">40</td>
-            </tr>
-        </table>
-
-        <table class="table">
-            <tr class="table__row">
-                <th class="table__title">Нужно откладывать %</th>
-                <th class="table__title">Сколько осталось лет</th>
-
             </tr>
 
             <?php foreach ($result as $key => $value): ?>
                 <tr class="table__row">
+                    <td class="table__column"><?=($income / 100) * $value['saving_rate']?></td>
+                    <td class="table__column"><?=$income - (($income / 100) * $value['saving_rate'])?></td>
                     <td class="table__column"><?=$value['saving_rate']?></td>
                     <td class="table__column"><?=$value['working_years']?></td>
                 </tr>

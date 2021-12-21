@@ -1,5 +1,11 @@
 <?php
 
+$income = 60000;
+
+if ( isset($_POST['submit']) ) {
+    $income = empty(!$_POST['income']) ? $_POST['income'] : 0;
+}
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
