@@ -67,7 +67,7 @@ if (mysqli_connect_error()) {
         );
     }
 
-    // изменить значение по щесортированному столбцу price, первые 2 значения
+    // изменить значение по отсортированному столбцу price, первые 2 значения
     // asc-сортировка по возрастанию
     // desc-сортировка по убыванию
     if (0) {
@@ -96,7 +96,9 @@ if (mysqli_connect_error()) {
     $result = mysqli_query($connect, "SELECT * FROM `stock`");
 
     // Вывод всех стольбцов
-    //$products = mysqli_query($connect, "SELECT * FROM `products`");
+    if (0) {
+        $products = mysqli_query($connect, "SELECT * FROM `products`");
+    }
 
     // Вывод первыз 3 отсортированных по возрастанию
     //$products = mysqli_query($connect, "SELECT * FROM `products` ORDER BY `price` ASC LIMIT 3");
@@ -111,11 +113,84 @@ if (mysqli_connect_error()) {
     // );
 
     // Исклюючить дубликаты названий в выводе ( DISTINCT )
-    $products = mysqli_query(
-        $connect,
-        "SELECT DISTINCT `name` FROM `products` ORDER BY `name` ASC"
-    );
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT DISTINCT `name` FROM `products` ORDER BY `name` ASC"
+        );
+    }
 
+    /*
+    * Фильтрация данных
+    * вывести товар где цена равнв 15
+    * = Равно
+    * <> или  !=  Не равно
+    * >= Больше или равно
+    * <= Меньше или равно
+    *
+    * IS Соответствует указанному
+    * IS NOT Не соответствует указанному
+    *
+    * BETWEEN AND Промежуто от и до включительно (BETWEEN 15 AND 700)
+    *
+    * IN() Список IN(1000, 15, 700)
+    *
+    * LIKE Регулярное вырожение (наченаеться на 'ст%')
+    *
+    * AND (И  &&)
+    * OR  (ИЛИ ||)
+    */
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name` FROM `products` WHERE `products`.`price` >= 15");
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `description` FROM `products` WHERE `description` IS null");
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price` FROM
+                `products` WHERE
+                `products`.`price` BETWEEN 15 AND 700
+            "
+        );
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price` FROM
+                `products` WHERE
+                `products`.`price` IN(1000, 15, 700)
+            "
+        );
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price` FROM
+                `products` WHERE
+                `products`.`name` LIKE 'ст%'
+            "
+        );
+    }
+
+    if (1) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price` FROM
+                `products` WHERE
+                `products`.`name` LIKE '%т%' AND `products`.`price` >= 1700
+            "
+        );
+    }
 
     //var_export($result);
 
