@@ -137,8 +137,10 @@ if (mysqli_connect_error()) {
     *
     * LIKE Регулярное вырожение (наченаеться на 'ст%')
     *
-    * AND (И  &&)
-    * OR  (ИЛИ ||)
+    * AND (И  &&) true AND false = false
+    * OR  (ИЛИ ||) true OR false = true, true OR true = true
+    * XOR (исключающие ИЛИ) true XOR false = true, true XOR true = false
+    * NOT (отрицание или NULL)
     */
     if (0) {
         $products = mysqli_query(
@@ -182,12 +184,32 @@ if (mysqli_connect_error()) {
         );
     }
 
-    if (1) {
+    if (0) {
         $products = mysqli_query(
             $connect,
             "SELECT `name`, `price` FROM
                 `products` WHERE
                 `products`.`name` LIKE '%т%' AND `products`.`price` >= 1700
+            "
+        );
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price`, `count` FROM
+                `products` WHERE
+                `products`.`count` > 10 XOR `products`.`price` >= 1700
+            "
+        );
+    }
+
+    if (1) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `price`, `count` FROM
+                `products` WHERE
+                 NOT `products`.`price` = 1700
             "
         );
     }
