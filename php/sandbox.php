@@ -204,12 +204,24 @@ if (mysqli_connect_error()) {
         );
     }
 
-    if (1) {
+    if (0) {
         $products = mysqli_query(
             $connect,
             "SELECT `name`, `price`, `count` FROM
                 `products` WHERE
                  NOT `products`.`price` = 1700
+            "
+        );
+    }
+
+    /**
+    * GROUP BY (группирует по имени столбца)
+    * sum(`count`) (сумирует значения `count`)
+    */
+    if (1) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, sum(`count`) FROM `products` GROUP BY `name`
             "
         );
     }

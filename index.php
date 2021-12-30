@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Фильтрация в БД</title>
+    <title>Операторы сортировки</title>
 
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/master.css">
@@ -29,16 +29,32 @@
                 <li><?php var_dump($value)?></li>
             <?php endforeach; ?>
 
-            <pre><?php //var_dump($rowResult)?></pre>
+            <pre><?php //var_dump($resultProductsas)?></pre>
         </ul>
 
         <h2>products</h2>
 
-        <ul>
-            <?php foreach ($resultProducts as $key => $value): ?>
-                <li><?php var_dump($value)?></li>
+        <pre><?php //var_dump($resultProducts)?></pre>
+
+        <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
+            <tr>
+                <?php foreach ($resultProducts[0] as $key => $title): ?>
+                    <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                        <?=$key?>
+                    </th>
+                <?php endforeach; ?>
+            </tr>
+
+            <?php foreach ($resultProducts as $i => $value): ?>
+                <tr>
+                    <?php foreach ($value as $j => $column): ?>
+                        <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                            <?=($column == null) ? 'нет описания' : $column?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
             <?php endforeach; ?>
-        </ul>
+        </table>
     </div>
   </body>
 </html>
