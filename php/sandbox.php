@@ -15,6 +15,16 @@ if (mysqli_connect_error()) {
 } else {
     echo 'Успешное подключение к базе';
 
+    /**
+    * Вывод всех продуктов
+    */
+    $productsAllResult = [];
+    $productsAll = mysqli_query($connect, "SELECT * FROM `products`");
+    //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
+    while ( $row = mysqli_fetch_assoc($productsAll) ) {
+        $productsAllResult[] = $row;
+    }
+
     // $result = mysqli_query(
     //     $connect,
     //     "INSERT INTO `stock` (`name`)
@@ -217,12 +227,49 @@ if (mysqli_connect_error()) {
     /**
     * GROUP BY (группирует по имени столбца)
     * sum(`count`) (сумирует значения `count`)
+    * max(`price`) (максимальная цена)
+    * min(`price`) (минимальная цена)
+    * HAVING (Фальтрация)
+    * ORDER BY `price` ASC сортировка по возрастанию
+    * ORDER BY `price` DESC сортировка по убыванию
+    * LIMIT 5 (вывести 5 строк)
     */
-    if (1) {
+    if (0) {
         $products = mysqli_query(
             $connect,
-            "SELECT `name`, sum(`count`) FROM `products` GROUP BY `name`
-            "
+            "SELECT `name`, sum(`count`) FROM `products` GROUP BY `name`"
+        );
+    }
+
+    if (0) {
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, max(`price`) AS 'Максимальная цена'
+            FROM `products` GROUP BY `name`"
+        );
+    }
+
+    if (0) { // Групировка по нескоьким параметрам
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `stock_id`, sum(`count`) FROM `products`
+            GROUP BY `name`, `stock_id`"
+        );
+    }
+
+    if (0) { // Фильтрация
+        $products = mysqli_query(
+            $connect,
+            "SELECT `name`, `stock_id`, sum(`count`) AS 'Колличество' FROM `products`
+            GROUP BY `name`, `stock_id` HAVING `Колличество` > 30 AND `Колличество` <= 70"
+        );
+    }
+
+    if (1) { // Сортировка
+        $products = mysqli_query(
+            $connect,
+            "SELECT * FROM `products`
+            ORDER BY `price` DESC LIMIT 5"
         );
     }
 

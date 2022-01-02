@@ -34,7 +34,29 @@
 
         <h2>products</h2>
 
-        <pre><?php //var_dump($resultProducts)?></pre>
+        <pre><?php //var_dump($productsAll)?></pre>
+
+        <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
+            <tr>
+                <?php foreach ($productsAllResult[0] as $key => $title): ?>
+                    <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                        <?=$key?>
+                    </th>
+                <?php endforeach; ?>
+            </tr>
+
+            <?php foreach ($productsAllResult as $i => $value): ?>
+                <tr>
+                    <?php foreach ($value as $j => $column): ?>
+                        <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                            <?=($column == null) ? 'нет описания' : $column?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <h2>products sort</h2>
 
         <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
             <tr>
