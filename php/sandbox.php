@@ -265,13 +265,45 @@ if (mysqli_connect_error()) {
         );
     }
 
-    if (1) { // Сортировка
+    if (0) { // Сортировка
         $products = mysqli_query(
             $connect,
             "SELECT * FROM `products`
             ORDER BY `price` DESC LIMIT 5"
         );
     }
+
+    /**
+    * Объединение данных
+    * INNER JOIN (Внутринее объединение)
+    * LEFT JOIN (Левосторонние внешние объединение)
+    * RIGHT JOIN (Правосторонние внешние объединение)
+    */
+
+    if (0) { // Внутринее объединение
+        $products = mysqli_query(
+            $connect,
+            "SELECT `products`.`name` AS 'название', `products`.`price`, `count`, `stock`.`name` AS 'Склад'
+            FROM `products` INNER JOIN `stock` on `products`.`stock_id` = `stock`.`id`"
+        );
+    }
+
+    if (0) { // Левосторонние внешние объединение
+        $products = mysqli_query(
+            $connect,
+            "SELECT `products`.`name` AS 'название', `products`.`price`, `count`, `stock`.`name` AS 'Склад'
+            FROM `products` LEFT JOIN `stock` on `products`.`stock_id` = `stock`.`id`"
+        );
+    }
+
+    if (1) { // Правосторонние внешние объединение
+        $products = mysqli_query(
+            $connect,
+            "SELECT `products`.`name` AS 'название', `products`.`price`, `count`, `stock`.`name` AS 'Склад'
+            FROM `products` RIGHT JOIN `stock` on `products`.`stock_id` = `stock`.`id`"
+        );
+    }
+
 
     //var_export($result);
 
