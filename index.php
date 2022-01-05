@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Объединение данных</title>
+    <title>Подготовленные запросы</title>
 
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/master.css">
@@ -24,18 +24,18 @@
     <div class="fixed-container">
         <h2>stock</h2>
 
-        <pre><?php //var_dump($resultProductsas)?></pre>
+        <pre><?php //var_dump($stock)?></pre>
 
         <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
             <tr>
-                <?php foreach ($rowResult[0] as $key => $title): ?>
+                <?php foreach ($stock[0] as $key => $title): ?>
                     <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
                         <?=$key?>
                     </th>
                 <?php endforeach; ?>
             </tr>
 
-            <?php foreach ($rowResult as $i => $value): ?>
+            <?php foreach ($stock as $i => $value): ?>
                 <tr>
                     <?php foreach ($value as $j => $column): ?>
                         <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
@@ -52,36 +52,14 @@
 
         <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
             <tr>
-                <?php foreach ($productsAllResult[0] as $key => $title): ?>
+                <?php foreach ($products[0] as $key => $title): ?>
                     <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
                         <?=$key?>
                     </th>
                 <?php endforeach; ?>
             </tr>
 
-            <?php foreach ($productsAllResult as $i => $value): ?>
-                <tr>
-                    <?php foreach ($value as $j => $column): ?>
-                        <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
-                            <?=($column == null) ? 'нет описания' : $column?>
-                        </td>
-                    <?php endforeach; ?>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-
-        <h2>products sort</h2>
-
-        <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
-            <tr>
-                <?php foreach ($resultProducts[0] as $key => $title): ?>
-                    <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
-                        <?=$key?>
-                    </th>
-                <?php endforeach; ?>
-            </tr>
-
-            <?php foreach ($resultProducts as $i => $value): ?>
+            <?php foreach ($products as $i => $value): ?>
                 <tr>
                     <?php foreach ($value as $j => $column): ?>
                         <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
