@@ -26,7 +26,7 @@
     <hr>
 
     <div class="fixed-container">
-        <h2>stock</h2>
+        <h2>Users</h2>
 
         <pre><?php //var_dump($resultProductsas)?></pre>
 

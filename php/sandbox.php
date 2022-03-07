@@ -22,15 +22,17 @@ if (mysqli_connect_error()) {
     $users = mysqli_query($connect, "SELECT * FROM `users`");
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
 
-    while ( $row = mysqli_fetch_assoc($users) ) {
-        $id = $row['id'];
+    if (0) {
+        while ( $row = mysqli_fetch_assoc($users) ) {
+            $id = $row['id'];
 
-        $passHash = password_hash($row['tel'], PASSWORD_DEFAULT);
-        var_dump($passHash);
-        echo "<br>";
-        //$productsAllResult[] = $row;
-        //var_dump($row);
-        mysqli_query($connect, "UPDATE `users` SET `password` = '$passHash' WHERE `id` = $id;");
+            $passHash = password_hash($row['tel'], PASSWORD_DEFAULT);
+            var_dump($passHash);
+            echo "<br>";
+            //$productsAllResult[] = $row;
+            //var_dump($row);
+            mysqli_query($connect, "UPDATE `users` SET `password` = '$passHash' WHERE `id` = $id;");
+        }
     }
 
     // $result = mysqli_query(
@@ -315,10 +317,12 @@ if (mysqli_connect_error()) {
 
     //var_export($result);
 
-    // while ($row = mysqli_fetch_assoc($result)) {
-    //     //var_dump($row);
-    //     $rowResult[] = $row;
-    // }
+    $result = mysqli_query($connect, "SELECT * FROM `users`");
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        //var_dump($row);
+        $rowResult[] = $row;
+    }
 
     // while ($row = mysqli_fetch_assoc($products)) {
     //     $resultProducts[] = $row;
