@@ -21,6 +21,10 @@
   </head>
 
   <body>
+    <br>
+    <br>
+    <hr>
+
     <div class="fixed-container">
         <h2>stock</h2>
 

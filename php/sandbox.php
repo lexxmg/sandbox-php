@@ -6,7 +6,7 @@ $resultProducts = [];
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$dbname = 'mydb';
+$dbname = 'skillbox_19.6';
 
 $connect = mysqli_connect($host, $user, $password, $dbname);
 
@@ -14,15 +14,23 @@ if (mysqli_connect_error()) {
     die(mysqli_connect_error());
 } else {
     echo 'Успешное подключение к базе';
-
+    echo "<br>  <hr>";
     /**
     * Вывод всех продуктов
     */
     $productsAllResult = [];
-    $productsAll = mysqli_query($connect, "SELECT * FROM `products`");
+    $users = mysqli_query($connect, "SELECT * FROM `users`");
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
-    while ( $row = mysqli_fetch_assoc($productsAll) ) {
-        $productsAllResult[] = $row;
+
+    while ( $row = mysqli_fetch_assoc($users) ) {
+        $id = $row['id'];
+
+        $passHash = password_hash($row['tel'], PASSWORD_DEFAULT);
+        var_dump($passHash);
+        echo "<br>";
+        //$productsAllResult[] = $row;
+        //var_dump($row);
+        mysqli_query($connect, "UPDATE `users` SET `password` = '$passHash' WHERE `id` = $id;");
     }
 
     // $result = mysqli_query(
@@ -296,7 +304,7 @@ if (mysqli_connect_error()) {
         );
     }
 
-    if (1) { // Правосторонние внешние объединение
+    if (0) { // Правосторонние внешние объединение
         $products = mysqli_query(
             $connect,
             "SELECT `products`.`name` AS 'название', `products`.`price`, `count`, `stock`.`name` AS 'Склад'
@@ -307,14 +315,14 @@ if (mysqli_connect_error()) {
 
     //var_export($result);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        //var_dump($row);
-        $rowResult[] = $row;
-    }
+    // while ($row = mysqli_fetch_assoc($result)) {
+    //     //var_dump($row);
+    //     $rowResult[] = $row;
+    // }
 
-    while ($row = mysqli_fetch_assoc($products)) {
-        $resultProducts[] = $row;
-    }
+    // while ($row = mysqli_fetch_assoc($products)) {
+    //     $resultProducts[] = $row;
+    // }
 
     //var_dump(mysqli_fetch_assoc($result));
 }
