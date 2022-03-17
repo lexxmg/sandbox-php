@@ -6,7 +6,7 @@ $resultProducts = [];
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$dbname = 'skillbox_19.6';
+$dbname = 'tel_number';
 
 $connect = mysqli_connect($host, $user, $password, $dbname);
 
@@ -19,8 +19,29 @@ if (mysqli_connect_error()) {
     * Вывод всех продуктов
     */
     $productsAllResult = [];
-    $users = mysqli_query($connect, "SELECT * FROM `users`");
+    $ip = mysqli_query($connect, "SELECT * FROM `ip` ORDER BY `id` ASC");
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
+    $ip = mysqli_fetch_all($ip);
+
+    if(0) {
+        // Начало sql-запрса
+        $sql = 'INSERT INTO `ip` (`ip`) VALUES ';
+
+        $temp = [];
+        // Генерация sql-запроса в цикле
+        foreach(addIp('185.36.160', 65, 100) as $value){
+            $temp[] = "('$value')";
+        }
+
+        // Объединение sql-запроса
+        $sql .= join(', ', $temp) . ';';
+
+        // Просмотр sql-запроса
+        echo $sql;
+
+        mysqli_query($connect, "$sql");
+    }
+
 
     if (0) {
         while ( $row = mysqli_fetch_assoc($users) ) {
@@ -50,14 +71,14 @@ if (mysqli_connect_error()) {
     }
 
     // добавить в базу несколько значений
-    if (false) {
+    if (0) {
         $products = mysqli_query(
             $connect,
-            "INSERT INTO `products` (`name`, `price`, `count`, `stock_id`)
+            "INSERT INTO `ip` (`ip`)
             VALUES
-            ('лампа', '1000', '13', '1'),
-            ('холодильник', '100000', '5', '3'),
-            ('стул', '15', '70', '2')"
+            ('192.168.5.1'),
+            ('192.168.5.2'),
+            ('192.168.5.3')"
         );
     }
 
@@ -332,3 +353,20 @@ if (mysqli_connect_error()) {
 }
 
 mysqli_close($connect);
+
+
+function addIp(string $net = '1.1.1', int $start, int $end): array
+{
+    $result = [];
+    $count = $end - $start;
+
+    for ($i = 0; $i <= $count; $i++) {
+        $ip = $start + $i;
+
+        $result[] = "$net.$ip";
+    }
+
+    return $result;
+}
+
+var_dump(addIp('185.36.160', 65, 100));
