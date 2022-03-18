@@ -52,40 +52,48 @@
 
         <h2>ip</h2>
 
-        <pre><?php //var_dump($productsAll)?></pre>
+        <pre><?php //var_dump($resultIp)?></pre>
 
         <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
             <tr>
-                <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
-                    ip
-                </th>
-            </tr>
-
-            <?php foreach ($ip as $i => $value): ?>
-                <tr>
-                    <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
-                        <?=$value[1]?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-
-        <h2>products sort</h2>
-
-        <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
-            <tr>
-                <?php foreach ($resultProducts[0] as $key => $title): ?>
+                <?php foreach ($resultIp[0] as $key => $value): ?>
                     <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
                         <?=$key?>
                     </th>
                 <?php endforeach; ?>
             </tr>
 
-            <?php foreach ($resultProducts as $i => $value): ?>
+            <?php foreach ($resultIp as $i => $row): ?>
+                <tr>
+                    <?php foreach ($row as $j => $value): ?>
+                        <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                            <?php if ($value == null): ?>
+                                свободный
+                            <?php else: ?>
+                                <?=$value?>
+                            <?php endif; ?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <h2>ip users</h2>
+
+        <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
+            <tr>
+                <?php foreach ($resultIpUsers[0] as $key => $title): ?>
+                    <th style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
+                        <?=$key?>
+                    </th>
+                <?php endforeach; ?>
+            </tr>
+
+            <?php foreach ($resultIpUsers as $i => $value): ?>
                 <tr>
                     <?php foreach ($value as $j => $column): ?>
                         <td style="border: 1px; border-style: solid; border-color: black; padding: 5px;">
-                            <?=($column == null) ? 'нет описания' : $column?>
+                            <?=($column == null) ? 'свободный' : $column?>
                         </td>
                     <?php endforeach; ?>
                 </tr>

@@ -2,6 +2,8 @@
 
 $rowResult = [];
 $resultProducts = [];
+$resultIp = [];
+$resultIpUsers = [];
 
 $host = 'localhost';
 $user = 'root';
@@ -9,28 +11,66 @@ $password = '';
 $dbname = 'tel_number';
 
 $connect = mysqli_connect($host, $user, $password, $dbname);
+//UPDATE `ip_mask` SET `hosts` = 254 WHERE `ip_mask`.`bitmask` = 24;
 
 if (mysqli_connect_error()) {
     die(mysqli_connect_error());
 } else {
     echo 'Успешное подключение к базе';
     echo "<br>  <hr>";
-    /**
-    * Вывод всех продуктов
-    */
-    $productsAllResult = [];
-    $ip = mysqli_query($connect, "SELECT * FROM `ip` ORDER BY `id` ASC");
-    //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
-    $ip = mysqli_fetch_all($ip);
 
+    $ipAddress = '192.168.5.10';
+    $ipArr = explode('.', $ipAddress);
+    var_dump($net = "$ipArr[0].$ipArr[1].$ipArr[2]");
+    var_dump($address = (int) $ipArr[3]);
+
+    /**
+    * Вывод всех адресов
+    */
+    $ip = mysqli_query($connect, "SELECT *  FROM `ip` ORDER BY `id` ASC;");
+    $ipUsers = mysqli_query(
+        $connect,
+        "SELECT `ip`.`net`, `ip`.`address`, `users`.`name`
+        FROM `ip` LEFT JOIN `users` ON
+        `ip`.`users_id` = `users`.`id`;"
+    );
+    //$ip = mysqli_query($connect, "SELECT * FROM `ip` WHERE `net` = '$net' AND `address` = $address;");
+    //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
+    //$ip = mysqli_fetch_all($ip);
+
+    while ( $row = mysqli_fetch_assoc($ipUsers) ) {
+        $resultIpUsers[] =  [
+            'ip' => $row['net'] . '.' . $row['address'],
+            'name' => $row['name']
+        ];
+    }
+
+    while ( $row = mysqli_fetch_assoc($ip) ) {
+        $resultIp[] = [
+            'id' => $row['id'],
+            'ip' => $row['net'] . '.' . $row['address'],
+            'masc' => $row['masc'],
+            'gateway' => $row['net'] . '.' . $row['gateway'],
+            'users_id' => $row['users_id']
+        ];
+    }
+
+    /**
+    * Формирование запроса на добовление адресов
+    */
     if(0) {
         // Начало sql-запрса
-        $sql = 'INSERT INTO `ip` (`ip`) VALUES ';
+        $sql = 'INSERT INTO `ip` (`net`, `address`, `masc`, `gateway`) VALUES ';
 
         $temp = [];
         // Генерация sql-запроса в цикле
-        foreach(addIp('185.36.160', 65, 100) as $value){
-            $temp[] = "('$value')";
+        foreach(addIp('192.168.5', 2, 10, '255.255.255.0', 1) as $value){
+            $net = $value['net'];
+            $address = $value['address'];
+            $masc = $value['masc'];
+            $gateway = $value['gateway'];
+
+            $temp[] = "('$net', $address, '$masc', $gateway)";
         }
 
         // Объединение sql-запроса
@@ -40,6 +80,16 @@ if (mysqli_connect_error()) {
         echo $sql;
 
         mysqli_query($connect, "$sql");
+    }
+
+    /**
+    * Удаление адресов по сетке `net`
+    */
+    if(0) {
+        mysqli_query(
+            $connect,
+            "DELETE FROM `ip` WHERE `ip`.`net` = '192.168.5'"
+        );
     }
 
 
@@ -355,18 +405,23 @@ if (mysqli_connect_error()) {
 mysqli_close($connect);
 
 
-function addIp(string $net = '1.1.1', int $start, int $end): array
+function addIp(string $net = '1.1.1', int $start = 1, int $end = 2, string $masc, int $gateway): array
 {
     $result = [];
     $count = $end - $start;
 
     for ($i = 0; $i <= $count; $i++) {
-        $ip = $start + $i;
+        $address = $start + $i;
 
-        $result[] = "$net.$ip";
+        $result[] = [
+            'net' => $net,
+            'address' => $address,
+            'masc' => $masc,
+            'gateway' => $gateway
+        ];
     }
 
     return $result;
 }
 
-var_dump(addIp('185.36.160', 65, 100));
+//var_dump(addIp('185.36.160', 65, 100));
