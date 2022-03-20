@@ -6,6 +6,8 @@ $rowResult = [];
 $resultProducts = [];
 $resultIp = [];
 $resultIpUsers = [];
+$resultIpMask = [];
+$resultIpNet = [];
 
 $host = 'localhost';
 $user = 'root';
@@ -44,6 +46,18 @@ if (mysqli_connect_error()) {
     //$ip = mysqli_query($connect, "SELECT * FROM `ip` WHERE `net` = '$net' AND `address` = $address;");
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
     //$ip = mysqli_fetch_all($ip);
+
+    $ipNet = mysqli_query($connect, "SELECT * FROM `ip_net`;");
+
+    while ( $row = mysqli_fetch_assoc($ipNet) ) {
+        $resultIpNet[] = $row;
+    }
+
+    $ipMask = mysqli_query($connect, "SELECT * FROM `ip_mask`;");
+
+    while ( $row = mysqli_fetch_assoc($ipMask) ) {
+        $resultIpMask[] = $row;
+    }
 
     while ( $row = mysqli_fetch_assoc($ipUsers) ) {
         $resultIpUsers[] =  [

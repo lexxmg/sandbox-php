@@ -52,6 +52,18 @@
 
         <h2>ip</h2>
 
+        <select class="" name="">
+            <?php foreach ($resultIpNet as $key => $value): ?>
+                <option value=""><?=$value['net']?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <select class="" name="">
+            <?php foreach ($resultIpMask as $key => $value): ?>
+                <option value=""><?=$value['netmask'] . ' / ' . $value['bitmask']?></option>
+            <?php endforeach; ?>
+        </select>
+
         <pre><?php //var_dump($resultIp)?></pre>
 
         <table style="border: 1px; border-style: solid; border-color: black; border-collapse: collapse;">
