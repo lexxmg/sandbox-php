@@ -2,6 +2,11 @@
 
 require $_SERVER['DOCUMENT_ROOT'] . '/php/function.php';
 
+$netId = 1;
+if( isset($_POST['button']) ) {
+    $netId = $_POST['net'];
+}
+
 $rowResult = [];
 $resultProducts = [];
 $resultIp = [];
@@ -23,6 +28,21 @@ if (mysqli_connect_error()) {
     echo 'Успешное подключение к базе';
     echo "<br>  <hr>";
 
+    var_dump(
+        mysqli_query(
+            $connect,
+            "CREATE TABLE `ip` (
+              `id` int(11) NOT NULL,
+              `ip_net_id` int(11) NOT NULL,
+              `address` int(3) NOT NULL,
+              `ip_mask_id` int(11) NOT NULL,
+              `gateway` int(3) NOT NULL,
+              `users_id` int(11) DEFAULT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            "
+        )
+    );
+
     /**
     * Вывод всех адресов
     */
@@ -33,7 +53,7 @@ if (mysqli_connect_error()) {
         `ip`.`gateway`, `ip`.`users_id` FROM `ip`
         LEFT JOIN `ip_net` ON `ip_net`.`id` = `ip`.`ip_net_id`
         LEFT JOIN `ip_mask` ON `ip_mask`.`id` = `ip`.`ip_mask_id`
-        WHERE `ip`.`ip_net_id` BETWEEN 1 AND 2
+        WHERE `ip`.`ip_net_id` = $netId
         ORDER BY `ip`.`address` ASC;"
     );
 
@@ -41,7 +61,9 @@ if (mysqli_connect_error()) {
         $connect,
         "SELECT `ip_net`.`net`, `ip`.`address`, `users`.`name` FROM `ip`
         LEFT JOIN `ip_net` ON `ip_net`.`id` = `ip`.`ip_net_id`
-        LEFT JOIN `users` ON `users`.`id` = `ip`.`users_id`;"
+        LEFT JOIN `users` ON `users`.`id` = `ip`.`users_id`
+        ORDER BY `ip_net`.`net`, `ip`.`address` ASC
+        ;"
     );
     //$ip = mysqli_query($connect, "SELECT * FROM `ip` WHERE `net` = '$net' AND `address` = $address;");
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив

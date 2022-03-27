@@ -52,17 +52,28 @@
 
         <h2>ip</h2>
 
-        <select class="" name="">
-            <?php foreach ($resultIpNet as $key => $value): ?>
-                <option value=""><?=$value['net']?></option>
-            <?php endforeach; ?>
-        </select>
+        <form class="" action="/" method="post">
+            <select class="" name="net">
+                <?php foreach ($resultIpNet as $key => $value): ?>
+                    <option
+                        value="<?=$value['id']?>"
+                        <?=($value['id'] == $netId) ? 'selected' : ''?>
+                    ><?=$value['net']?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
-        <select class="" name="">
-            <?php foreach ($resultIpMask as $key => $value): ?>
-                <option value=""><?=$value['netmask'] . ' / ' . $value['bitmask']?></option>
-            <?php endforeach; ?>
-        </select>
+            <select class="" name="netmask">
+                <?php foreach ($resultIpMask as $key => $value): ?>
+                    <option
+                        value="<?=$value['id']?>"
+                    ><?=$value['netmask'] . ' / ' . $value['bitmask']?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <button type="submit" name="button">применить</button>
+        </form>
 
         <pre><?php //var_dump($resultIp)?></pre>
 
