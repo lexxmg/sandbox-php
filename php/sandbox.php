@@ -1,18 +1,16 @@
 <?php
 
 require $_SERVER['DOCUMENT_ROOT'] . '/php/function.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/php/sql-function.php';
 
-$netId = 1;
+$netId = 0;
 if( isset($_POST['button']) ) {
     $netId = $_POST['net'];
 }
 
 $rowResult = [];
 $resultProducts = [];
-$resultIp = [];
 $resultIpUsers = [];
-$resultIpMask = [];
-$resultIpNet = [];
 
 $host = 'localhost';
 $user = 'root';
@@ -27,6 +25,13 @@ if (mysqli_connect_error()) {
 } else {
     echo 'Успешное подключение к базе';
     echo "<br>  <hr>";
+
+    /**
+    * Вывод всех адресов
+    */
+    $resultIp = getIp($connect, $netId);
+    $resultIpNet = getNet($connect);
+    $resultIpMask = getMask($connect);
 
     var_dump(
         mysqli_query(
@@ -43,20 +48,6 @@ if (mysqli_connect_error()) {
         )
     );
 
-    /**
-    * Вывод всех адресов
-    */
-    $ip = mysqli_query(
-        $connect,
-        "SELECT `ip`.`id`, `ip_net`.`net`,
-        `ip`.`address`, `ip_mask`.`netmask`,
-        `ip`.`gateway`, `ip`.`users_id` FROM `ip`
-        LEFT JOIN `ip_net` ON `ip_net`.`id` = `ip`.`ip_net_id`
-        LEFT JOIN `ip_mask` ON `ip_mask`.`id` = `ip`.`ip_mask_id`
-        WHERE `ip`.`ip_net_id` = $netId
-        ORDER BY `ip`.`address` ASC;"
-    );
-
     $ipUsers = mysqli_query(
         $connect,
         "SELECT `ip_net`.`net`, `ip`.`address`, `users`.`name` FROM `ip`
@@ -69,32 +60,10 @@ if (mysqli_connect_error()) {
     //$productsAll = mysqli_fetch_all($productsAll); // получаем массив
     //$ip = mysqli_fetch_all($ip);
 
-    $ipNet = mysqli_query($connect, "SELECT * FROM `ip_net`;");
-
-    while ( $row = mysqli_fetch_assoc($ipNet) ) {
-        $resultIpNet[] = $row;
-    }
-
-    $ipMask = mysqli_query($connect, "SELECT * FROM `ip_mask`;");
-
-    while ( $row = mysqli_fetch_assoc($ipMask) ) {
-        $resultIpMask[] = $row;
-    }
-
     while ( $row = mysqli_fetch_assoc($ipUsers) ) {
         $resultIpUsers[] =  [
             'ip' => joinIp($row['net'] ,$row['address']),
             'name' => $row['name']
-        ];
-    }
-
-    while ( $row = mysqli_fetch_assoc($ip) ) {
-        $resultIp[] = [
-            'id' => $row['id'],
-            'ip' => joinIp($row['net'], $row['address']),
-            'netmask' => $row['netmask'],
-            'gateway' => joinIp($row['net'], $row['gateway']),
-            'users_id' => $row['users_id']
         ];
     }
 

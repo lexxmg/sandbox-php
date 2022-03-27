@@ -54,6 +54,8 @@
 
         <form class="" action="/" method="post">
             <select class="" name="net">
+                <option value="0">все адреса</option>
+
                 <?php foreach ($resultIpNet as $key => $value): ?>
                     <option
                         value="<?=$value['id']?>"
