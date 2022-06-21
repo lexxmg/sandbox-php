@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>sandbox php</title>
+    <title>OOP php</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/master.css">
@@ -25,7 +25,21 @@
 
   <body>
     <div class="fixed-container">
+        <pre>
+            <?php displayName($employee_1)?>
+        </pre>
 
+        <pre>
+            <?php displayAge($employee_1)?>
+        </pre>
+
+        <pre>
+            <?php changePosition($employee_1, 'DIR')?>
+        </pre>
+
+        <pre>
+            <?php var_dump( $employee_1 )?>
+        </pre>
     </div>
   </body>
 </html>
