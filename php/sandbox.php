@@ -9,92 +9,63 @@
 
 // private: свойства и методы с данным модификатором доступны только из текущего класса
 
-/**
- * Здания
- */
-class Building
-{
-    const MAX_FLOORS = 20;
+require_once './php/classes/Translator.php';
 
-    private $floors;
+use classes\translator as ct;
 
-    public function setFloorsNumber($floorNumber)
-    {
-        echo 'Вызван метод ' . __METHOD__ . PHP_EOL;
+$translation = new ct\Translator();
+$translationDe = new ct\Translator('de');
 
-        if ($floorNumber > self::MAX_FLOORS) {
-            echo 'Слишком высокое!' . PHP_EOL;
-            return;
-        }
+var_dump( $translation->getDictionary() );
 
-        $this->floors = $floorNumber;
-    }
 
-    public function showFloorNumber()
-    {
-        echo $this->floors . PHP_EOL;
-    }
+$translationResult = $translation->translate('work');
+$translationResultDe = $translationDe->translate('arbit');
 
-    public function showClossName()
-    {
-        echo 'Имя данного класса ' . __CLASS__ . PHP_EOL;
-        self::static();
-    }
-
-    public static function static()
-    {
-        echo 'Статическая функция' . PHP_EOL;
-    }
+if ($translationResult) {
+    echo $translationResult . PHP_EOL;
+} else {
+    echo 'Нет перевода' . PHP_EOL;
 }
 
-$building = new Building();
-$building->setFloorsNumber(7);
-$building->setFloorsNumber(21);
-$building->showFloorNumber();
-$building->showClossName();
-echo Building::class . PHP_EOL;
-Building::static();
+if ($translationResultDe) {
+    echo $translationResultDe . PHP_EOL;
+} else {
+    echo 'Нет перевода' . PHP_EOL;
+}
 
+
+$testField_1 = 'test';
+
+function test($testField_1)
+{
+    echo $testField_1;
+}
 
 /**
  *
  */
-class Employee
+class TestClass
 {
-    public $age, $gender, $name, $surname, $position;
+    private $testField_1, $testField_2;
 
-    public function displayAge()
+    public function sretValues()
     {
-        echo $this->age . PHP_EOL;
+        $this->testField_1 = 'test_1';
+        $this->testField_2 = 'test_2';
     }
 
-    public function displayName()
+    public function showFields()
     {
-        echo $this->employee . PHP_EOL;
-    }
-
-    public function all()
-    {
-        echo $this->age . PHP_EOL;
-        echo $this->gender . PHP_EOL;
-        echo $this->name . PHP_EOL;
-        echo $this->surname . PHP_EOL;
-        echo $this->position . PHP_EOL;
-    }
-
-    public function changePosition($position)
-    {
-        $this->position = $position;
+        echo $this->testField_1 . PHP_EOL;
+        echo $this->testField_2 . PHP_EOL;
     }
 }
 
-$employee_1_1 = new Employee();
-$employee_1_1->age = 18;
-$employee_1_1->gender = 'gerl';
-$employee_1_1->name = 'Alisiay';
-$employee_1_1->surname = 'africa';
-$employee_1_1->position = 'CEO';
-// $employee_1_1->displayAge();
-// $employee_1_1->all();
-// $employee_1_1->changePosition('NEW');
-// $employee_1_1->all();
+
+$testObject = new TestClass;
+
+$testObject->sretValues();
+$testObject->showFields();
+
+test($testField_1);
