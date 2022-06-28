@@ -25,7 +25,15 @@
 
   <body>
     <div class="fixed-container">
+        <h1>Список задач</h1>
 
+        <ul>
+            <?php foreach ($tasksList->getArrayToDoList() as $key => $value): ?>
+                <li>
+                    <p><?=$value['title']?> <?=$value['date']?></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
   </body>
 </html>

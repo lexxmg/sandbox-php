@@ -2,6 +2,12 @@
 
 namespace listStorage;
 
+function testNS()
+{
+    echo 'testNS';
+}
+
+
 /**
  *
  */
@@ -83,5 +89,15 @@ class ToDoListStorage
             echo ($value['done'] ? 'Вполнена' : ' Не выполнена') . '<br>';
             echo '-------------------------------------------' . '<br>';
         }
+    }
+
+    public function getArrayToDoList()
+    {
+        return $this->tasks;
+    }
+
+    public function getJSONToDoList()
+    {
+        return json_encode($this->tasks);
     }
 }

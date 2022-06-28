@@ -5,6 +5,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/ToDoListStorage.php';
 
 use listStorage as ls;
 
+ls\testNS();
+
 $tasksList = new ls\ToDoListStorage($_SERVER['DOCUMENT_ROOT'] . '/upload/storage.json');
 
 $tasksList->createTask('task' . uniqid());
@@ -16,6 +18,10 @@ $tasksList->removeTask(11);
 
 $tasksList->taskDone(4);
 
-$tasksList->printToDoList();
+//$tasksList->printToDoList();
+
+//var_dump( $tasksList->getArrayToDoList() );
+
+//echo $tasksList->getJSONToDoList();
 
 $tasksList->saveToJSON();
