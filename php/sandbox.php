@@ -13,74 +13,41 @@
 /**
  *
  */
-class Employee
+class Student
 {
-    public $age, $gender, $name, $surname, $position;
+    public static $department = 'Иностранных языков';
+    public $name;
 
-    public function displayAge()
+    function __construct($name)
     {
-        echo $this->age . PHP_EOL;
+        $this->name = $name;
     }
 
-    public function displayName()
+    public function showDepartment()
     {
-        echo $this->employee . PHP_EOL;
+        return self::$department;
     }
 
-    public function all()
+    public function changeDepartment($department)
     {
-        echo $this->age . PHP_EOL;
-        echo $this->gender . PHP_EOL;
-        echo $this->name . PHP_EOL;
-        echo $this->surname . PHP_EOL;
-        echo $this->position . PHP_EOL;
+        self::$department = $department;
     }
 
-    public function changePosition($position)
+    public static function changeDepartmentStatic($department)
     {
-        $this->position = $position;
+        self::$department = $department;
     }
 }
 
-$employee_1_1 = new Employee();
-$employee_1_1->age = 18;
-$employee_1_1->gender = 'gerl';
-$employee_1_1->name = 'Alisiay';
-$employee_1_1->surname = 'africa';
-$employee_1_1->position = 'CEO';
-$employee_1_1->displayAge();
-$employee_1_1->all();
-$employee_1_1->changePosition('NEW');
-$employee_1_1->all();
+$studentOne = new Student('Vasya');
+$studentTwo = new Student('Petya');
 
+//$studentOne->changeDepartment('новое название');
 
-$employee_1 = [
-    'age' => 18,
-    'gende' => 'gerl',
-    'name' => 'Alisiay',
-    'surname' => 'africa',
-    'position' => 'CEO'
-];
+Student::changeDepartmentStatic('новое название static');
 
-$employee_2 = [
-    'age' => 38,
-    'gende' => 'male',
-    'name' => 'Vasya',
-    'surname' => 'Ivanov',
-    'position' => 'CTO'
-];
+echo $studentOne->name . PHP_EOL;
+echo $studentOne->showDepartment() . PHP_EOL;
 
-function displayName($employee)
-{
-    echo $employee['name'];
-}
-
-function displayAge($employee)
-{
-    echo $employee['age'];
-}
-
-function changePosition(&$employee, $position)
-{
-    $employee['position'] = $position;
-}
+echo $studentTwo->name . PHP_EOL;
+echo $studentTwo->showDepartment() . PHP_EOL;
