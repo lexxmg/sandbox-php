@@ -10,44 +10,8 @@
 // private: свойства и методы с данным модификатором доступны только из текущего класса
 
 
-/**
- *
- */
-class Student
-{
-    public static $department = 'Иностранных языков';
-    public $name;
+require_once 'Class_B.php';
 
-    function __construct($name)
-    {
-        $this->name = $name;
-    }
+$bObject = new b\Class_B();
 
-    public function showDepartment()
-    {
-        return self::$department;
-    }
-
-    public function changeDepartment($department)
-    {
-        self::$department = $department;
-    }
-
-    public static function changeDepartmentStatic($department)
-    {
-        self::$department = $department;
-    }
-}
-
-$studentOne = new Student('Vasya');
-$studentTwo = new Student('Petya');
-
-//$studentOne->changeDepartment('новое название');
-
-Student::changeDepartmentStatic('новое название static');
-
-echo $studentOne->name . PHP_EOL;
-echo $studentOne->showDepartment() . PHP_EOL;
-
-echo $studentTwo->name . PHP_EOL;
-echo $studentTwo->showDepartment() . PHP_EOL;
+echo $bObject->showMessage() . PHP_EOL;
