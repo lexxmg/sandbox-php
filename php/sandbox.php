@@ -14,4 +14,13 @@ require_once 'Class_B.php';
 
 $bObject = new b\Class_B();
 
+$cObject = new b\Class_C();
+
+echo $bObject->showMessage() . PHP_EOL;
+
+echo $cObject->showMessage() . PHP_EOL;
+
+$cObject->setMessage('новое сообщение');
+echo $cObject->showMessage() . PHP_EOL;
+
 echo $bObject->showMessage() . PHP_EOL;
