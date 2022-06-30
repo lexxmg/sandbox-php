@@ -2,23 +2,25 @@
 
 namespace classes\translator;
 
+require_once 'Storage.php';
+
+use \classes\storage as stor;
+
 /**
  *
  */
-class Translator
+class Translator extends stor\Storage
 {
     private $dictionary = ['en' => [], 'de' => []];
     private $language;
 
-    public function __construct($language  = 'en')
+    public function __construct($language  = 'en', $fileName = '')
     {
+        $this->getStorage($fileName);
+
+        $this->dictionary = $this->getArrayStorage();
+
         $this->language = $language;
-
-        $this->addWord('лес', 'forest', 'en');
-        $this->addWord('работа', 'work', 'en');
-
-        $this->addWord('лес', 'wald', 'de');
-        $this->addWord('работа', 'arbit', 'de');
     }
 
     public function addWord(string $russianWord, string $translation, $language)
@@ -28,6 +30,8 @@ class Translator
         }
 
         $this->dictionary[$language][$translation] = $russianWord;
+
+        $this->setSrorage($this->dictionary);
     }
 
     public function translate(string $word)

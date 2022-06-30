@@ -13,8 +13,20 @@ require_once './php/classes/Translator.php';
 
 use classes\translator as ct;
 
-$translation = new ct\Translator();
-$translationDe = new ct\Translator('de');
+$translation = new ct\Translator('en', '/Applications/XAMPP/xamppfiles/htdocs/domains/sandbox.my/upload/storage.json');
+$translationDe = new ct\Translator('de', '/Applications/XAMPP/xamppfiles/htdocs/domains/sandbox.my/upload/storage.json');
+
+
+// $translation->addWord('лес', 'forest', 'en');
+// $translation->addWord('работа', 'work', 'en');
+//
+// $translation->addWord('лес', 'wald', 'de');
+// $translation->addWord('работа', 'arbit', 'de');
+//
+// $translation->setSrorage($this->dictionary);
+
+$translation->addWord('толковый словарь', 'dictionary', 'en');
+// $translation->setSrorage($translation->getDictionary());
 
 var_dump( $translation->getDictionary() );
 
@@ -33,39 +45,3 @@ if ($translationResultDe) {
 } else {
     echo 'Нет перевода' . PHP_EOL;
 }
-
-
-$testField_1 = 'test';
-
-function test($testField_1)
-{
-    echo $testField_1;
-}
-
-/**
- *
- */
-class TestClass
-{
-    private $testField_1, $testField_2;
-
-    public function sretValues()
-    {
-        $this->testField_1 = 'test_1';
-        $this->testField_2 = 'test_2';
-    }
-
-    public function showFields()
-    {
-        echo $this->testField_1 . PHP_EOL;
-        echo $this->testField_2 . PHP_EOL;
-    }
-}
-
-
-$testObject = new TestClass;
-
-$testObject->sretValues();
-$testObject->showFields();
-
-test($testField_1);
