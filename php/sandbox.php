@@ -25,13 +25,13 @@ $translationDe = new ct\Translator('de', '/Applications/XAMPP/xamppfiles/htdocs/
 //
 // $translation->setSrorage($this->dictionary);
 
-$translation->addWord('толковый словарь', 'dictionary', 'en');
+$translation->addWord('работник', 'employee', 'en');
 // $translation->setSrorage($translation->getDictionary());
 
 var_dump( $translation->getDictionary() );
 
 
-$translationResult = $translation->translate('work');
+$translationResult = $translation->translate('employee');
 $translationResultDe = $translationDe->translate('arbit');
 
 if ($translationResult) {
