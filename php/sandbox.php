@@ -9,8 +9,16 @@
 
 // private: свойства и методы с данным модификатором доступны только из текущего класса
 
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Employee.php';
 require_once 'Class_B.php';
+
+$accountant = new employee\Accountant();
+$accountant->setParameters('Иван', 'Глав. бух.', 36);
+
+
+
+
+
 
 $bObject = new b\Class_B();
 

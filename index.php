@@ -1,6 +1,6 @@
 
 <?php
-  require($_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php');
+  require $_SERVER['DOCUMENT_ROOT'] . '/php/sandbox.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,19 +26,11 @@
   <body>
     <div class="fixed-container">
         <pre>
-            <?php displayName($employee_1)?>
+            <?php $accountant->showEmployeeInfo()?>
         </pre>
 
         <pre>
-            <?php displayAge($employee_1)?>
-        </pre>
-
-        <pre>
-            <?php changePosition($employee_1, 'DIR')?>
-        </pre>
-
-        <pre>
-            <?php var_dump( $employee_1 )?>
+            <?php $accountant->prepareReport()?>
         </pre>
     </div>
   </body>
