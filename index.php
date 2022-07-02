@@ -44,6 +44,24 @@
         <pre>
             <?php $bicycle->move()?>
         </pre>
+
+        <h2>Трейты</h2>
+
+        <pre>
+            <?php $fantomasCar->escape()?>
+        </pre>
+
+        <pre>
+            <?php $carTr->ride()?>
+        </pre>
+
+        <pre>
+            <?php $carTr->move()?>
+        </pre>
+
+        <pre>
+            <?php $carTr->moveTr()?>
+        </pre>
     </div>
   </body>
 </html>

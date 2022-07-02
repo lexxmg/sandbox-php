@@ -11,12 +11,18 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Employee.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Abstract.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Traits.php';
+
 require_once 'Class_B.php';
 
 use php\classAbstract as ca;
+use php\classTrait as tr;
 
 $car = new ca\Car();
 $bicycle = new ca\Bicycle();
+
+$fantomasCar = new tr\FantomasCar();
+$carTr = new tr\Car();
 
 
 
