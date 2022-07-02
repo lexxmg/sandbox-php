@@ -10,14 +10,18 @@
 // private: свойства и методы с данным модификатором доступны только из текущего класса
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Employee.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Abstract.php';
 require_once 'Class_B.php';
+
+use php\classAbstract as ca;
+
+$car = new ca\Car();
+$bicycle = new ca\Bicycle();
+
+
 
 $accountant = new employee\Accountant();
 $accountant->setParameters('Иван', 'Глав. бух.', 36);
-
-
-
-
 
 
 $bObject = new b\Class_B();

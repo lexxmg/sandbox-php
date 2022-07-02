@@ -25,12 +25,24 @@
 
   <body>
     <div class="fixed-container">
+        <h1>Наследование</h1>
+
         <pre>
             <?php $accountant->showEmployeeInfo()?>
         </pre>
 
         <pre>
             <?php $accountant->prepareReport()?>
+        </pre>
+
+        <h2>Абстрактные классы</h2>
+
+        <pre>
+            <?php $car->move()?>
+        </pre>
+
+        <pre>
+            <?php $bicycle->move()?>
         </pre>
     </div>
   </body>
