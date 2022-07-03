@@ -22,7 +22,7 @@ $car = new ca\Car();
 $bicycle = new ca\Bicycle();
 
 $fantomasCar = new tr\FantomasCar();
-$carTr = new tr\Car();
+$carTr = new tr\Car2();
 
 
 

@@ -9,17 +9,34 @@ use  \php\classAbstract as ab;
 /**
  *
  */
-trait VehicleFunctions
+trait Car
 {
     public function ride()
     {
         echo 'Ямогу ехать';
     }
+}
 
+/**
+ *
+ */
+trait Plane
+{
     public function fly()
     {
         echo 'Я могу летать';
     }
+}
+
+
+
+/**
+ *
+ */
+trait VehicleFunctions
+{
+    use Car;
+    use Plane;
 
     public function move()
     {
@@ -31,17 +48,17 @@ trait VehicleFunctions
 /**
  *
  */
-class Car extends ab\Car
+class Car2 extends ab\Car
 {
-    use VehicleFunctions;
+    use Car;
 }
 
 /**
  *
  */
-class Plane
+class Plane2
 {
-    use VehicleFunctions;
+    use Plane;
 }
 
 /**

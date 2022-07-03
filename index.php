@@ -58,10 +58,6 @@
         <pre>
             <?php $carTr->move()?>
         </pre>
-
-        <pre>
-            <?php $carTr->moveTr()?>
-        </pre>
     </div>
   </body>
 </html>
