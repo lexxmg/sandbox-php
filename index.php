@@ -25,12 +25,10 @@
 
   <body>
     <div class="fixed-container">
-        <pre>
-            <?php $accountant->showEmployeeInfo()?>
-        </pre>
+        <h1 style="text-align: center;">Интерфейсы</h1>
 
         <pre>
-            <?php $accountant->prepareReport()?>
+            <?php ?>
         </pre>
     </div>
   </body>

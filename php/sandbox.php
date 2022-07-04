@@ -9,26 +9,18 @@
 
 // private: свойства и методы с данным модификатором доступны только из текущего класса
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Employee.php';
-require_once 'Class_B.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Interface.php';
 
-$accountant = new employee\Accountant();
-$accountant->setParameters('Иван', 'Глав. бух.', 36);
+use php\inter as inter;
 
+$path = $_SERVER['DOCUMENT_ROOT'] . '/example.txt';
 
+$fileWriter = new inter\FileWriter();
+$scrssnWriter = new inter\ScreenWriter();
 
+//$stringProcessor = new inter\StringProcessor(new inter\ScreenWriter(), 'test');
+$stringProcessor = new inter\StringProcessor($scrssnWriter);
+$stringProcessor2 = new inter\StringProcessor($fileWriter, $path);
 
-
-
-$bObject = new b\Class_B();
-
-$cObject = new b\Class_C();
-
-echo $bObject->showMessage() . PHP_EOL;
-
-echo $cObject->showMessage() . PHP_EOL;
-
-$cObject->setMessage('новое сообщение');
-echo $cObject->showMessage() . PHP_EOL;
-
-echo $bObject->showMessage() . PHP_EOL;
+$stringProcessor->write('test');
+$stringProcessor2->write('test');
