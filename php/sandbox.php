@@ -15,12 +15,12 @@ use php\inter as inter;
 
 $path = $_SERVER['DOCUMENT_ROOT'] . '/example.txt';
 
-$fileWriter = new inter\FileWriter();
+$fileWriter = new inter\FileWriter($path);
 $scrssnWriter = new inter\ScreenWriter();
 
 //$stringProcessor = new inter\StringProcessor(new inter\ScreenWriter(), 'test');
 $stringProcessor = new inter\StringProcessor($scrssnWriter);
-$stringProcessor2 = new inter\StringProcessor($fileWriter, $path);
+$stringProcessor2 = new inter\StringProcessor($fileWriter);
 
 $stringProcessor->write('test');
 $stringProcessor2->write('test');

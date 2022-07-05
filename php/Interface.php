@@ -7,7 +7,7 @@ namespace php\inter;
  */
 interface StringWriter
 {
-    public function writeString($str, $path);
+    public function writeString($str);
 }
 
 
@@ -16,9 +16,16 @@ interface StringWriter
  */
 class FileWriter implements StringWriter
 {
-    public function writeString($str, $path)
+    private $path;
+
+    public function __construct($path)
     {
-        file_put_contents($path, $str);
+        $this->path = $path;
+    }
+
+    public function writeString($str)
+    {
+        file_put_contents($this->path, $str);
     }
 }
 
@@ -27,7 +34,7 @@ class FileWriter implements StringWriter
  */
 class ScreenWriter implements StringWriter
 {
-    public function writeString($str, $path)
+    public function writeString($str)
     {
         echo $str;
     }
@@ -39,16 +46,15 @@ class ScreenWriter implements StringWriter
  */
 class StringProcessor
 {
-    public $writer, $path;
+    public $writer;
 
-    public function __construct(StringWriter $writer, string $path = '')
+    public function __construct(StringWriter $writer)
     {
         $this->writer = $writer;
-        $this->path = $path;
     }
 
     public function write($str)
     {
-        $this->writer->writeString($str, $this->path);
+        $this->writer->writeString($str);
     }
 }
