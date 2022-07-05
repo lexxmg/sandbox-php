@@ -2,6 +2,10 @@
 
 namespace php\inter;
 
+use \php\storage as stor;
+
+require_once 'Storage.php';
+
 /**
  *
  */
@@ -12,7 +16,7 @@ interface StringWriter
 
 
 /**
- *
+ * запись в файл
  */
 class FileWriter implements StringWriter
 {
@@ -26,6 +30,19 @@ class FileWriter implements StringWriter
     public function writeString($str)
     {
         file_put_contents($this->path, $str);
+        return $this->setSrorage($str);
+    }
+}
+
+
+/**
+ * интерфейс с наследием от класса Storage
+ */
+class FileWriterStor extends stor\Storage implements StringWriter
+{
+    public function writeString($str)
+    {
+        return $this->setSrorage($str);
     }
 }
 

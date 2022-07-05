@@ -13,14 +13,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/Interface.php';
 
 use php\inter as inter;
 
-$path = $_SERVER['DOCUMENT_ROOT'] . '/example.txt';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/uplode/example.txt';
+$path2 = $_SERVER['DOCUMENT_ROOT'] . '/uplode/example_2.txt';
 
-$fileWriter = new inter\FileWriter($path);
+$fileWriterStor = new inter\FileWriterStor($path);
+
+$fileWriter = new inter\FileWriterStor($path2);
+
 $scrssnWriter = new inter\ScreenWriter();
 
 //$stringProcessor = new inter\StringProcessor(new inter\ScreenWriter(), 'test');
 $stringProcessor = new inter\StringProcessor($scrssnWriter);
-$stringProcessor2 = new inter\StringProcessor($fileWriter);
+$stringProcessor2 = new inter\StringProcessor($fileWriterStor);
+$stringProcessor3 = new inter\StringProcessor($fileWriter);
 
 $stringProcessor->write('test');
 $stringProcessor2->write('test');
+$stringProcessor3->write('test-2');
