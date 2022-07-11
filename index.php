@@ -26,19 +26,7 @@
   <body>
     <div class="fixed-container">
         <pre>
-            <?php displayName($employee_1)?>
-        </pre>
-
-        <pre>
-            <?php displayAge($employee_1)?>
-        </pre>
-
-        <pre>
-            <?php changePosition($employee_1, 'DIR')?>
-        </pre>
-
-        <pre>
-            <?php var_dump( $employee_1 )?>
+            <?php $cityHouseObj->showHouseDescription()?>
         </pre>
     </div>
   </body>
